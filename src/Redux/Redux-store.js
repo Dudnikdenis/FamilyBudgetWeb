@@ -1,30 +1,12 @@
+import {combineReducers,applyMiddleware, createStore} from "redux";
+import creditReducer from "./credit-reducer";
+import ThunkMiddleware from "redux-thunk";
 
-const SET_CREDIT = "SET_CREDIT";
+let reducers = combineReducers({
+    credit: creditReducer
+})
 
-let initialState = {
-    credit:[
-        {
-            nameBank: "Газпромбанк",
-            datePayment: 14,
-            amount: 5800},
+let store = createStore(reducers, applyMiddleware(ThunkMiddleware));
 
-        {
-            nameBank: "Газпромбанк",
-            datePayment: 14,
-            amount: 7700}
-    ]
-}
 
-export const CreditReduser = (state = initialState, action) =>{
-
-    switch(action.type){
-        case SET_CREDIT:
-            return {...state};
-            default:
-                return state;            
-    }
-};
-
-export const SetCredit = (credit) =>({type:SET_CREDIT, credit});
-
-export default CreditReduser;
+export default store;

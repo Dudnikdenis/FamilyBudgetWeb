@@ -1,11 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
-import Credit from './component/TableCredit/credit';
+import store from './Redux/Redux-store';
+
+import CreditContainer from './component/TableCredit/creditContainer';
 
 function App() {
   return (
     <div className="App">
-      <Credit></Credit>
+      <CreditContainer/>
     </div>
   );
 }
