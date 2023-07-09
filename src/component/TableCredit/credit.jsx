@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import cs from './credit.module.css'
+import CreditReduxForm from './creditForm'
 
 
 const Credit = (props) => { 
@@ -20,9 +21,8 @@ const Credit = (props) => {
         setAmountb(e.target.value)
     }
 
-    const onSubmitChanget = () => {
-        
-        props.AddCreditCreator({id:props.credit.credit.length+1, nameBank:nameB, datePayment: dateB, amount: amountB})
+    const onSubmit = (dataForm) => {
+        props.AddCreditCreator({id:props.credit.credit.length+1, nameBank:dataForm.nameBank, datePayment:dataForm.datePayment, amount:dataForm.amount})
     }
 
     const onNewNmaeBankChannge = (e, id) =>{
@@ -61,12 +61,7 @@ const Credit = (props) => {
                     )
                 }
            
-            <form onSubmit={onSubmitChanget}>
-                <input value={nameB} onChange={onNewCreditNameChanget}  placeholder="Название Банка"/>
-                <input value={dateB} onChange={onNewCreditDateChanget}  placeholder="Дата"/>
-                <input value={amountB} onChange={onNewCreditAmountChanget} placeholder="Сумма"/>
-                <input type="submit"/>
-            </form>
+            <CreditReduxForm onSubmit = {onSubmit}/>
         </div>
     )
 }
