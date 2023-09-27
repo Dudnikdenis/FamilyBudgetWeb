@@ -1,13 +1,23 @@
-import logo from './logo.svg';
 import './App.css';
-import store from './Redux/Redux-store';
+import {
+  BrowserRouter, Routes,
+  Route,
+} from 'react-router-dom'
 
 import CreditContainer from './component/TableCredit/creditContainer';
+import ExpensesContainer from './component/Expenses/expensesContainer';
+import Main from './component/Main/Main'
 
 function App() {
   return (
     <div className="App">
-      <CreditContainer/>
+      <BrowserRouter>
+                    <Routes>
+                        <Route path='/' element = {<Main/>  }/>
+                        <Route path='/credit' element = {<CreditContainer/>  }/>
+                        <Route path='/expenses' element = {<ExpensesContainer/>  }/>                         
+                    </Routes>
+            </BrowserRouter>
     </div>
   );
 }

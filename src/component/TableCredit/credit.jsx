@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import { Link } from "react-router-dom";
 import cs from './credit.module.css'
 import CreditReduxForm from './creditForm'
 
@@ -40,7 +41,7 @@ const Credit = (props) => {
     }
     return(
         <div>
-            
+            <Link to={"/"}> Главная </Link>
                 {props.credit.credit.map(m=>
                     <table key={m.id} className={cs.table}>
                         <tr >
