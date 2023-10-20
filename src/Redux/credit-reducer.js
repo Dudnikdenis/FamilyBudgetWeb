@@ -10,13 +10,13 @@ let initialState = {
             id: 1,
             nameBank: "Газпромбанк",
             datePayment: "14",
-            amount: "5800"},
+            amount: "1000"},
 
         {
             id: 2,
             nameBank: "Газпромбанк",
             datePayment: "14",
-            amount: "7700"}
+            amount: "1000"}
     ]
 }
 

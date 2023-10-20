@@ -1,6 +1,8 @@
 .table{
     border: 1px solid grey;
     border-collapse: collapse;
+    margin: 15px;
+    font-size: 20px;
 }
 
 .td{
@@ -14,3 +16,36 @@
     width: 120px;
     height: 25px;
 }
+
+.link{
+    text-decoration: none;
+    border: 3px solid grey;
+    background-color: grey;
+    border-radius: 5px;
+    color: black;
+    font-size: 25px;
+    margin: 5px;
+    
+  }
+
+  .addForm{
+    padding: 15px;
+  }
+
+  .formFiled{
+    padding: 5px;
+  }
+
+  .formBut{
+    padding: 5px;
+    margin: 10px;
+    border-radius: 10px;
+  }
+
+  .formInput{
+    border-radius: 10px;
+  }
+
+  .divForm{
+    margin: 0 auto;
+  }

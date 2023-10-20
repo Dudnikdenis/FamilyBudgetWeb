@@ -30,25 +30,31 @@ const Expenses = (props) => {
     }
     return(
         <div>
-            <Link to={"/"}> Главная </Link>
+            <table  className={cs.table}>
+                        <tr>
+                            <th className={cs.td_name}>Название</th>
+                            <th className={cs.td}>Сумма</th>
+                            <th className={cs.td}>Результат</th>
+                        </tr>
                 {props.expenses.expenses.map(m=>
-                    <table key={m.id} className={cs.table}>
                         <tr >
                             <td className={cs.td_name}>
-                                <input  value={m.nameExpenses} onChange={e => onNewNameExpensesChannge(e, m.id)}/>
+                                <div>{m.nameExpenses}</div>
                             </td>
                             <td className={cs.td}>
-                                <input  value={m.amount} onChange={e => onNewAmountChannge(e, m.id)}/>
+                            <div>{m.amount}</div>
                             </td>
                             <td className={cs.td}>
                                 <input type="checkbox"></input>
                             </td>                            
                         </tr> 
-                    </table>
+                    
                     )
                 }
-           
-            
+                </table>
+                <div className={cs.addCredit}>
+                    <Link className={cs.link} to="/add/expenses" > Добавить </Link>
+                </div>
         </div>
     )
 }

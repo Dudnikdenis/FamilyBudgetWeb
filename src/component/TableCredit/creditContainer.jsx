@@ -1,5 +1,3 @@
-import React, {useState} from "react";
-import cs from './credit.module.css';
 import Credit from "./credit";
 import { connect } from "react-redux";
 import { UpdateCreditNameCreator, UpdateCreditDatePaymentCreator, UpdateCreditAmountCreator, AddCreditCreator } from "../../Redux/credit-reducer";
