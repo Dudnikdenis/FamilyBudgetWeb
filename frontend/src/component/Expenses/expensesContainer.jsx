@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import Expenses from "./expenses";
 import { connect } from "react-redux";
-import { UpdateExpensesNameCreator,  UpdateExpensesAmountCreator, AddExpensesCreator } from "../../Redux/expenses-reducer";
+import { UpdateExpensesNameCreator,  UpdateExpensesAmountCreator, AddExpensesCreator, getExpenses } from "../../Redux/expenses-reducer";
 
 
 
@@ -14,7 +14,8 @@ const mapStateToProps = (state) =>{
 const ExpensesContainer= connect(mapStateToProps,{
     UpdateExpensesNameCreator,
     UpdateExpensesAmountCreator,
-    AddExpensesCreator
+    AddExpensesCreator,
+    getExpenses
     })(Expenses);
 
 export default ExpensesContainer;

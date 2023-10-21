@@ -1,3 +1,4 @@
+import { FBWAPI } from "../API/api";
 
 const UPDATE_EXPENSES_NAME = "UPDATE_EXPENSES_NAME";
 const UPDATE_EXPENSES_AMOUNT = "UPDATE_EXPENSES_AMOUNT";
@@ -5,19 +6,19 @@ const ADD_EXPENSES = "ADD_EXPENSES";
 
 let initialState = {
     expenses:[
-        {
-            id: 1,
-            nameExpenses: "Сделать ремонт",
-            amount: "60000"},
+        // {
+        //     id: 1,
+        //     nameExpenses: "Сделать ремонт",
+        //     amount: "60000"},
 
-        {
-            id: 2,
-            nameExpenses: "Купить продукты",
-            amount: "10000"},
-        {
-            id: 3,
-            nameExpenses: "Купить запчасти",
-            amount: "10000"},
+        // {
+        //     id: 2,
+        //     nameExpenses: "Купить продукты",
+        //     amount: "10000"},
+        // {
+        //     id: 3,
+        //     nameExpenses: "Купить запчасти",
+        //     amount: "10000"},
     ]
 }
 
@@ -36,8 +37,8 @@ export const ExpensesReduser = (state = initialState, action) =>{
             return stateCopy;
         case ADD_EXPENSES:
             stateCopy = {...state};
-            stateCopy.expenses =  [...state.expenses];
-            stateCopy.expenses.push(action.newExpenses); 
+            stateCopy.expenses =  [...action.newExpenses];
+            //stateCopy.expenses.push(action.newExpenses); 
             //debugger;
             return stateCopy;
         default:
@@ -48,5 +49,22 @@ export const ExpensesReduser = (state = initialState, action) =>{
 export const UpdateExpensesNameCreator = (updateExpensesName,id) =>({type:UPDATE_EXPENSES_NAME, updateExpensesName,id});// передача акшину дополнительные параметры
 export const UpdateExpensesAmountCreator = (updateExpensesAmount,id) =>({type:UPDATE_EXPENSES_AMOUNT, updateExpensesAmount,id});
 export const AddExpensesCreator = (newExpenses) =>({type:ADD_EXPENSES, newExpenses});
+
+export const getExpenses = () => { 
+    return (dispatch) => {
+      FBWAPI.GetExpenses().then(response => {
+        dispatch (AddExpensesCreator(response.data.expenses))
+      });
+    };
+};
+
+export const postAddExpenses = (expenses) => { 
+    FBWAPI.AddExpenses(expenses);
+    return (dispatch) => {
+        FBWAPI.GetExpenses().then(response => {
+          dispatch (AddExpensesCreator(response.data.expenses))
+        });
+    }
+};
 
 export default ExpensesReduser;

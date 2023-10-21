@@ -1,33 +1,14 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import { Link } from "react-router-dom";
 import cs from './expenses.module.css'
 
 
 const Expenses = (props) => { 
 
-    let [nameE, setNameE] = useState("");
-    let [amountE, setAmountE] = useState("");
+    useEffect( ()=>{
+        props.getExpenses();
+    },[])
 
-    const onNewCreditNameChanget = (e) => {
-        setNameE(e.target.value)
-    }
-
-    const onNewCreditAmountChanget = (e) => {
-        setAmountE(e.target.value)
-    }
-
-    // const onSubmit = (dataForm) => {
-    //     props.AddCreditCreator({id:props.credit.credit.length+1, nameBank:dataForm.nameBank, datePayment:dataForm.datePayment, amount:dataForm.amount})
-    // }
-
-    const onNewNameExpensesChannge = (e, id) =>{
-        props.UpdateExpensesNameCreator(e.target.value,id) // передача в обработчик событий дополнительных параметров
-    }
-
-    const onNewAmountChannge = (e,id) => {
-        //debugger;
-        props.UpdateExpensesAmountCreator(e.target.value,id) // передача в обработчик событий дополнительных параметров
-    }
     return(
         <div>
             <table  className={cs.table}>

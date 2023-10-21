@@ -1,10 +1,14 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import { Link } from "react-router-dom";
 import cs from './credit.module.css'
 import CreditReduxForm from './creditForm'
 
 
 const Credit = (props) => { 
+    
+    useEffect( ()=>{
+        props.getCredit();
+    },[])
 
 
     return(

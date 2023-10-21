@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -38,6 +39,8 @@ let expenses = {
     ]
 };
 
+app.use(cors());
+app.use(express.json());
 app.use((req, res, next)=>{
     res.setHeader('Access-Control-Allow-Origin', '*'); next();
 });
@@ -48,6 +51,14 @@ app.get('/api/credit', (req, res) => {
 
   app.get('/api/expenses', (req, res) => {
     res.json({ data: expenses });
+  });
+
+  app.post('/api/add/credit', (req, res) => {
+    credit.credit.push(req.body);
+  });
+
+  app.post('/api/add/expenses', (req, res) => {
+    expenses.expenses.push(req.body); 
   });
 
 app.listen(PORT,()=>{

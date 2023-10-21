@@ -1,14 +1,18 @@
 import React from "react";
-import { Field, reduxForm } from "redux-form";
-import { Link } from "react-router-dom";
-import cs from './expenses.module.css'
+import { useForm } from "react-hook-form";
+import { Link, useNavigate } from "react-router-dom";
+import cs from './expenses.module.css';
+import { postAddExpenses } from "../../Redux/expenses-reducer";
 
 
 let ExpensesReduxForm = (props) => {
 
-    const onSubmit = (dataForm) => {
-        console.log(dataForm);
-        //props.AddCreditCreator({id:props.credit.credit.length+1, nameBank:dataForm.nameBank, datePayment:dataForm.datePayment, amount:dataForm.amount})
+    const navigate = useNavigate()
+    const { register, handleSubmit } = useForm();
+
+    const submit = (dataForm) => {
+        postAddExpenses(dataForm);
+        navigate('/expenses');
     }
 
 
@@ -16,12 +20,12 @@ let ExpensesReduxForm = (props) => {
         <div >
             <Link className={cs.link} to="/expenses"> Назад </Link>
             <div className={cs.divForm}>
-            <form className={cs.addForm} onSubmit={onSubmit}>
+            <form className={cs.addForm} onSubmit={handleSubmit(submit)}>
                 <div className={cs.formFiled}>
-                    <Field className={cs.formInput} component = {"input"} name = {"nameBank"} placeholder="Название "/>
+                    <input className={cs.formInput} {...register("nameExpenses")}  type="text" placeholder="Название "/>
                 </div>
                 <div className={cs.formFiled}>
-                    <Field className={cs.formInput} component = {"input"} name = {"amount"} placeholder="Сумма"/>
+                    <input className={cs.formInput} {...register("amount")}  type="text" placeholder="Сумма"/>
                 </div>
                 <button className={cs.formBut} type="submit">Добавить</button>
             </form>
@@ -30,6 +34,6 @@ let ExpensesReduxForm = (props) => {
     )
 }
 
-ExpensesReduxForm = reduxForm({form:'ExpensesForm'})(ExpensesReduxForm)
+
 
 export default ExpensesReduxForm;
