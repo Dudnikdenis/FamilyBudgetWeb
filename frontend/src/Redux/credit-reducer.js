@@ -6,7 +6,10 @@ const UPDATE_CREDIT_AMOUNT = "UPDATE_CREDIT_AMOUNT";
 const ADD_CREDIT = "ADD_CREDIT";
 
 let initialState = {
-    credit:[]
+    credit:[],
+    ferstNumberAmount: 0,
+    secondNumberAmount: 0,
+    totalAmount: 0
 }
 
 export const CreditReduser = (state = initialState, action) =>{
@@ -53,7 +56,7 @@ export const postAddCredit = (credit) => {
     FBWAPI.AddCredit(credit);
     return (dispatch) => {
     FBWAPI.GetCredit().then(response => {
-        dispatch (AddCreditCreator(response.data.credit))
+        dispatch (AddCreditCreator(response.data.credit)) // надо доделать
       });
     }
 };

@@ -10,6 +10,8 @@ import {
   import ExpensesContainer from '../Expenses/expensesContainer';
   import CreditReduxForm from '../TableCredit/creditForm';
   import ExpensesReduxForm from '../Expenses/expensesForm';
+  import ShoppingListContainer from "../ShoppingList/ShoppingListContainer";
+import ShoppingListForm from "../ShoppingList/shoppingListForm";
 
 
 const Main = (props) => { 
@@ -27,6 +29,9 @@ const Main = (props) => {
                         <div className={cs.tabs}>
                             <Link className={cs.link} to="/expenses" >Расходы</Link>
                         </div>
+                        <div className={cs.tabs}>
+                            <Link className={cs.link} to="/shoppingList" >Список покупок</Link>
+                        </div>
                     </div>
                     <div className={cs.main}>
                         <Routes>
@@ -34,6 +39,8 @@ const Main = (props) => {
                             <Route path='/expenses' element = {<ExpensesContainer/>  }/> 
                             <Route path="/add/credit" element = {<CreditReduxForm /> }/> 
                             <Route path="/add/expenses" element = {<ExpensesReduxForm /> }/>                         
+                            <Route path="/shoppingList" element = {<ShoppingListContainer /> }/> 
+                            <Route path="/add/shoppingList" element = {<ShoppingListForm /> }/> 
                         </Routes>
                     </div>
                 </BrowserRouter>

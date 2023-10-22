@@ -18,6 +18,23 @@ let credit = {
             nameBank: "Газпромбанк",
             datePayment: "14",
             amount: "1000"}
+    ],
+    ferstNumberAmount: 1000,
+    secondNumberAmount: 2000,
+    totalAmount: 3000
+};
+
+let shoppingList = {
+    shoppingList:[
+        {
+            id: 1,
+            name: "Макароны",
+            weight: "1"},
+
+        {
+            id: 2,
+            name: "Лук",
+            weight: "1"}
     ]
 };
 
@@ -53,12 +70,20 @@ app.get('/api/credit', (req, res) => {
     res.json({ data: expenses });
   });
 
+  app.get('/api/shoppingList', (req, res) => {
+    res.json({ data: shoppingList });
+  });
+
   app.post('/api/add/credit', (req, res) => {
     credit.credit.push(req.body);
   });
 
   app.post('/api/add/expenses', (req, res) => {
     expenses.expenses.push(req.body); 
+  });
+
+  app.post('/api/add/shoppingList', (req, res) => {
+    shoppingList.shoppingList.push(req.body);
   });
 
 app.listen(PORT,()=>{

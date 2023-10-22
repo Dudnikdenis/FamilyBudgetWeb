@@ -22,6 +22,13 @@ export const FBWAPI = {
         });
     },
 
+    async GetShoppingList() 
+    {
+        return await instance.get("api/shoppingList").then(response => {           
+            return response.data
+        });
+    },
+
     async AddCredit(credit) 
     {
          return await instance.post("api/add/credit", credit).then(response=>{
@@ -34,5 +41,12 @@ export const FBWAPI = {
          return await instance.post("api/add/expenses", expenses).then(response=>{
         return response.data;
          });
-    }
+    },
+
+    async AddShoppingList(shoppingList) 
+    {
+         return await instance.post("api/add/shoppingList", shoppingList).then(response=>{
+        console.log(response);
+         });
+    },
 }
