@@ -12,6 +12,8 @@ import {
   import ExpensesReduxForm from '../Expenses/expensesForm';
   import ShoppingListContainer from "../ShoppingList/ShoppingListContainer";
 import ShoppingListForm from "../ShoppingList/shoppingListForm";
+import Authorization from "../Authorization/authorization"
+import logo from '../../Img/pngegg.png'
 
 
 const Main = (props) => { 
@@ -20,7 +22,11 @@ const Main = (props) => {
             <div className={cs.total}>
                 <BrowserRouter>
                 <div className={cs.header}>
-
+                    <img src={logo} className={cs.img}/>
+                    <div className={cs.divHeader}></div>
+                    <div className={cs.butHeader}>
+                    <Link className={cs.linkAuthor} to="/" >Войти</Link>
+                    </div>
                 </div>
                     <div className={cs.panel}>
                         <div className={cs.tabs}>
@@ -35,6 +41,7 @@ const Main = (props) => {
                     </div>
                     <div className={cs.main}>
                         <Routes>
+                            <Route path='/' element = {<Authorization/>  }/>
                             <Route path='/credit' element = {<CreditContainer/>  }/>
                             <Route path='/expenses' element = {<ExpensesContainer/>  }/> 
                             <Route path="/add/credit" element = {<CreditReduxForm /> }/> 
