@@ -89,3 +89,6 @@ app.get('/api/credit', (req, res) => {
 app.listen(PORT,()=>{
     console.log('Server listening on 3001');
 });
+
+
+//https://zencod.ru/articles/nodejs-server/?ysclid=lo1sd2qhrj70640010%2F
