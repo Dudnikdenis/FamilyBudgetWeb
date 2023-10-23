@@ -20,7 +20,7 @@ const Expenses = (props) => {
                 {props.expenses.expenses.map(m=>
                         <tr >
                             <td className={cs.td_name}>
-                                <div>{m.nameExpenses}</div>
+                                <div>{m.name_expenses}</div>
                             </td>
                             <td className={cs.tdAmount}>
                             <div>{m.amount}</div>

@@ -10,21 +10,21 @@ const instance = axios.create({
 export const FBWAPI = {
     async GetCredit() 
     {
-        return await instance.get("api/credit").then(response => {           
+        return await instance.get("credit/get").then(response => {           
             return response.data
         });
     },
 
     async GetExpenses() 
     {
-        return await instance.get("api/expenses").then(response => {           
+        return await instance.get("expenses/get").then(response => {           
             return response.data
         });
     },
 
     async GetShoppingList() 
     {
-        return await instance.get("api/shoppingList").then(response => {           
+        return await instance.get("shoppingList/get").then(response => {           
             return response.data
         });
     },

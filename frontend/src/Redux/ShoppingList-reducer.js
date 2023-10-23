@@ -24,7 +24,7 @@ export const AddShoppingListCreator = (newShoppingList) =>({type:ADD_SHOPPING_LI
 export const getShoppingList = () => {   // Thunk
     return (dispatch) => {
       FBWAPI.GetShoppingList().then(response => {
-        dispatch (AddShoppingListCreator(response.data.shoppingList))
+        dispatch (AddShoppingListCreator(response))
       });
     };
 };
@@ -33,7 +33,7 @@ export const postAddShoppingList = (shoppingList) => {
     FBWAPI.AddShoppingList(shoppingList);
     return (dispatch) => {
     FBWAPI.GetShoppingList().then(response => {
-        dispatch (AddShoppingListCreator(response.data.shoppingList)) // надо доделать
+        dispatch (AddShoppingListCreator(response)) // надо доделать
       });
     }
 };

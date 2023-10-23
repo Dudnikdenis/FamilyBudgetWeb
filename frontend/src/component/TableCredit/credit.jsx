@@ -23,10 +23,10 @@ const Credit = (props) => {
                 {props.credit.credit.map(m=>
                         <tr >
                             <td className={cs.td_name}>
-                                <div>{m.nameBank}</div>
+                                <div>{m.namebank}</div>
                             </td>
                             <td className={cs.td}>
-                                <div >{m.datePayment}</div>
+                                <div >{m.datepayment}</div>
                             </td>
                             <td className={cs.td}>
                                 <div>{m.amount}</div>

@@ -23,10 +23,10 @@ const ShoppingList = (props) => {
                 {props.shoppingList.map (m=>
                         <tr >
                             <td className={cs.td_name}>
-                                <div>{m.name}</div>
+                                <div>{m.product_name}</div>
                             </td>
                             <td className={cs.td}>
-                                <div >{m.weight}</div>
+                                <div >{m.product_quantity}</div>
                             </td>
                             <td className={cs.td}>
                                 <input type="checkbox"></input>

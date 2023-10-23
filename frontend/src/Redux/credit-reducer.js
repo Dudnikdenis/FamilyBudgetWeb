@@ -47,7 +47,7 @@ export const AddCreditCreator = (newCredit) =>({type:ADD_CREDIT, newCredit});
 export const getCredit = () => {   // Thunk
     return (dispatch) => {
       FBWAPI.GetCredit().then(response => {
-        dispatch (AddCreditCreator(response.data.credit))
+        dispatch (AddCreditCreator(response))
       });
     };
 };
@@ -56,7 +56,7 @@ export const postAddCredit = (credit) => {
     FBWAPI.AddCredit(credit);
     return (dispatch) => {
     FBWAPI.GetCredit().then(response => {
-        dispatch (AddCreditCreator(response.data.credit)) // надо доделать
+        dispatch (AddCreditCreator(response)) // надо доделать
       });
     }
 };

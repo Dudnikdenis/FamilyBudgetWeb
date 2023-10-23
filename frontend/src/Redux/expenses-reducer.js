@@ -53,7 +53,7 @@ export const AddExpensesCreator = (newExpenses) =>({type:ADD_EXPENSES, newExpens
 export const getExpenses = () => { 
     return (dispatch) => {
       FBWAPI.GetExpenses().then(response => {
-        dispatch (AddExpensesCreator(response.data.expenses))
+        dispatch (AddExpensesCreator(response))
       });
     };
 };
@@ -62,7 +62,7 @@ export const postAddExpenses = (expenses) => {
     FBWAPI.AddExpenses(expenses);
     return (dispatch) => {
         FBWAPI.GetExpenses().then(response => {
-          dispatch (AddExpensesCreator(response.data.expenses))
+          dispatch (AddExpensesCreator(response))
         });
     }
 };
