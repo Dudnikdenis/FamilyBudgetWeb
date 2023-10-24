@@ -67,4 +67,23 @@ export const postAddExpenses = (expenses) => {
     }
 };
 
+
+export const deleteExpenses = (expenses_id) => {
+    FBWAPI.DeleteExpenses(expenses_id);
+    return (dispatch) => {
+        FBWAPI.GetExpenses().then(response => {
+            dispatch (AddExpensesCreator(response))
+          });
+    }
+};
+
+export const UpdateAccomplishment = (accomplishment) => {
+    return (dispatch) => {
+      FBWAPI.UpdateAccomplishment(accomplishment, "expenses");
+      FBWAPI.GetExpenses().then(response => {
+        dispatch (AddExpensesCreator(response))
+      });
+    };
+  }
+
 export default ExpensesReduser;

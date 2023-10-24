@@ -1,6 +1,6 @@
 import ShoppingList from "./ShoppingList";
 import { connect } from "react-redux";
-import { AddShoppingListCreator, getShoppingList } from "../../Redux/ShoppingList-reducer"
+import { AddShoppingListCreator, getShoppingList, deleteShoppingList, deleteShoppingListTotal, UpdateAccomplishment } from "../../Redux/ShoppingList-reducer"
 
 
 
@@ -12,7 +12,10 @@ const mapStateToProps = (state) =>{
 
 const ShoppingListContainer= connect(mapStateToProps,{
     AddShoppingListCreator,
-    getShoppingList
+    getShoppingList,
+    deleteShoppingList,
+    deleteShoppingListTotal,
+    UpdateAccomplishment
     })(ShoppingList);
 
 export default ShoppingListContainer;

@@ -31,21 +31,57 @@ export const FBWAPI = {
 
     async AddCredit(credit) 
     {
-         return await instance.post("api/add/credit", credit).then(response=>{
+         return await instance.post("credit/add", credit).then(response=>{
         console.log(response);
          });
     },
 
     async AddExpenses(expenses) 
     {
-         return await instance.post("api/add/expenses", expenses).then(response=>{
+         return await instance.post("expenses/add", expenses).then(response=>{
         return response.data;
          });
     },
 
     async AddShoppingList(shoppingList) 
     {
-         return await instance.post("api/add/shoppingList", shoppingList).then(response=>{
+         return await instance.post("shoppingList/add", shoppingList).then(response=>{
+        console.log(response);
+         });
+    },
+
+    async DeleteShoppingList(shoppingList_id) 
+    {
+         return await instance.post("shoppingList/delete", shoppingList_id).then(response=>{
+        console.log(response);
+         });
+    },
+
+    async DeleteShoppingListTotal() 
+    {
+         return await instance.get("shoppingList/delete/total").then(response=>{
+        console.log(response);
+         });
+    },
+
+    async UpdateAccomplishment(accomplishment, url) // надо также переписать остальные запросы (убрать все одинаковые)
+    {
+         return await instance.post(`${url}/accomplishment`, accomplishment).then(response=>{
+        console.log(response);
+         });
+    },
+
+    async DeleteExpenses(expenses_id) 
+    {
+         return await instance.post("expenses/delete", expenses_id).then(response=>{
+        console.log(response);
+         });
+    },
+
+
+    async DeleteCredit(credit_id) 
+    {
+         return await instance.post("credit/delete", credit_id).then(response=>{
         console.log(response);
          });
     },

@@ -2,9 +2,11 @@ const Router = require('express');
 const router = new Router();
 const expensesController = require('../controller/expenses.controller');
 
-router.post('/api/add/credit', expensesController.AddExpenses);
+router.post('/add', expensesController.AddExpenses);
 router.get('/get', expensesController.GetExpenses);
-router.delete('/api/deete/credit', expensesController.DeleteExpenses);
+router.post('/delete', expensesController.DeleteExpenses);
+router.post('/accomplishment', expensesController.UpdateAccomplishmentGetExpenses);
+
 
 
 

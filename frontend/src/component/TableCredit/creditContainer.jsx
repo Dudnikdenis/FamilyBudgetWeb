@@ -1,6 +1,6 @@
 import Credit from "./credit";
 import { connect } from "react-redux";
-import { UpdateCreditNameCreator, UpdateCreditDatePaymentCreator, UpdateCreditAmountCreator, AddCreditCreator, getCredit} from "../../Redux/credit-reducer";
+import { AddCreditCreator, getCredit, deleteCredit, UpdateAccomplishment} from "../../Redux/credit-reducer";
 
 
 
@@ -11,11 +11,11 @@ const mapStateToProps = (state) =>{
 }
 
 const CreditContainer= connect(mapStateToProps,{
-    UpdateCreditNameCreator,
-    UpdateCreditDatePaymentCreator,
-    UpdateCreditAmountCreator,
     AddCreditCreator,
-    getCredit
+    getCredit,
+    deleteCredit,
+    UpdateAccomplishment
+
     })(Credit);
 
 export default CreditContainer;

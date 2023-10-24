@@ -61,4 +61,23 @@ export const postAddCredit = (credit) => {
     }
 };
 
+
+export const deleteCredit = (credit_id) => {
+    FBWAPI.DeleteCredit(credit_id);
+    return (dispatch) => {
+        FBWAPI.GetCredit().then(response => {
+            dispatch (AddCreditCreator(response)) // надо доделать
+          });
+    }
+};
+
+export const UpdateAccomplishment = (accomplishment) => {
+    return (dispatch) => {
+      FBWAPI.UpdateAccomplishment(accomplishment, "credit");
+      FBWAPI.GetCredit().then(response => {
+        dispatch (AddCreditCreator(response)) // надо доделать
+      });
+    };
+  };
+
 export default CreditReduser;

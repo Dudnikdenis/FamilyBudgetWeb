@@ -38,4 +38,31 @@ export const postAddShoppingList = (shoppingList) => {
     }
 };
 
+export const deleteShoppingList = (shoppingList_id) => {
+    FBWAPI.DeleteShoppingList(shoppingList_id);
+    return (dispatch) => {
+    FBWAPI.GetShoppingList().then(response => {
+        dispatch (AddShoppingListCreator(response)) // надо доделать
+      });
+    }
+};
+
+export const deleteShoppingListTotal = () => {   // Thunk
+  return (dispatch) => {
+    FBWAPI.DeleteShoppingListTotal();
+    FBWAPI.GetShoppingList().then(response => {
+      dispatch (AddShoppingListCreator(response)) // надо доделать
+    });
+  };
+};
+
+export const UpdateAccomplishment = (accomplishment) => {
+  return (dispatch) => {
+    FBWAPI.UpdateAccomplishment(accomplishment, "shoppingList");
+    FBWAPI.GetShoppingList().then(response => {
+      dispatch (AddShoppingListCreator(response)) // надо доделать
+    });
+  };
+}
+
 export default ShoppingListReduser;

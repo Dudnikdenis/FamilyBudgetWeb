@@ -2,9 +2,11 @@ const Router = require('express');
 const router = new Router();
 const shoppingListController = require('../controller/shoppingList.controller');
 
-router.post('/api/add/credit', shoppingListController.AddShoppingList);
+router.post('/add', shoppingListController.AddShoppingList);
 router.get('/get', shoppingListController.GetShoppingList);
-router.delete('/api/deete/credit', shoppingListController.DeleteShoppingList);
+router.post('/delete', shoppingListController.DeleteShoppingList);
+router.get('/delete/total', shoppingListController.DeleteShoppingListTotal);
+router.post('/accomplishment', shoppingListController.UpdateAccomplishmentShoppingList);
 
 
 

@@ -2,7 +2,7 @@
   display: grid;
     grid-template-areas:
 "table total_amount"
-"button  button";
+"add add";
     grid-template-rows: 1fr 1fr;
     grid-template-columns: 1fr 1fr;
 }
@@ -31,7 +31,12 @@
 
 
 .addCredit{
-  grid-area: button;
+  grid-area: add;
+    padding-top: 15px;
+}
+
+.resetShoppingList{
+  grid-area: reset;
     padding-top: 15px;
 }
 
@@ -43,7 +48,7 @@
     border-radius: 5px;
     color: black;
     font-size: 25px;
-    padding: 5px;
+    margin: 5px;
     
   }
 
@@ -80,4 +85,10 @@
 
   .formInput{
     border-radius: 10px;
+  }
+
+  .green{
+    background-color: green;
+    width: 100%;
+    height: 100%;
   }

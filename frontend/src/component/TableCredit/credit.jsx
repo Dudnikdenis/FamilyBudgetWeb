@@ -10,6 +10,21 @@ const Credit = (props) => {
         props.getCredit();
     },[])
 
+    const deleteCredit = (e, id) =>{
+        
+        props.deleteCredit({credit_id:id});
+    }
+
+    const getColorRow = (value)=>{
+        if(value) return cs.green
+        
+     }
+
+     const UpdateAccomplishment = (e, accomplishment, credit_id) =>{
+        props.UpdateAccomplishment({accomplishment:!accomplishment, credit_id:credit_id})
+     }
+
+
 
     return(
         <div className={cs.creditDiv}>
@@ -31,8 +46,11 @@ const Credit = (props) => {
                             <td className={cs.td}>
                                 <div>{m.amount}</div>
                             </td>
+                            <td onClick={(e)=>{UpdateAccomplishment(e,m.accomplishment, m.credit_id)}}  className={cs.td}>
+                                <div className={getColorRow(m.accomplishment)}></div>
+                            </td>  
                             <td className={cs.td}>
-                                <input type="checkbox"></input>
+                                <button onClick={(e)=>{deleteCredit(e,m.credit_id)}}>Удалить</button>
                             </td>                            
                         </tr> 
                     )

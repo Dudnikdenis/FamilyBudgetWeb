@@ -9,6 +9,21 @@ const Expenses = (props) => {
         props.getExpenses();
     },[])
 
+
+    const deleteExpenses = (e, id) =>{
+        
+        props.deleteExpenses({expenses_id:id});
+    }
+
+    const getColorRow = (value)=>{
+        if(value) return cs.green
+        
+     }
+
+     const UpdateAccomplishment = (e, accomplishment, expenses_id) =>{
+        props.UpdateAccomplishment({accomplishment:!accomplishment, expenses_id:expenses_id})
+     }
+
     return(
         <div>
             <table  className={cs.table}>
@@ -23,11 +38,14 @@ const Expenses = (props) => {
                                 <div>{m.name_expenses}</div>
                             </td>
                             <td className={cs.tdAmount}>
-                            <div>{m.amount}</div>
+                                <div>{m.amount}</div>
+                            </td>
+                            <td onClick={(e)=>{UpdateAccomplishment(e,m.accomplishment, m.expenses_id)}} className={cs.td}>
+                                    <div className={getColorRow(m.accomplishment)}></div>
                             </td>
                             <td className={cs.td}>
-                                <input type="checkbox"></input>
-                            </td>                            
+                                <button onClick={(e)=>{deleteExpenses(e,m.expenses_id)}}>Удалить</button>
+                            </td>                              
                         </tr> 
                     
                     )

@@ -2,10 +2,10 @@ const Router = require('express');
 const router = new Router();
 const creditController = require('../controller/credit.controller');
 
-router.post('/api/add/credit', creditController.AddCredit);
+router.post('/add', creditController.AddCredit);
 router.get('/get', creditController.GetCredit);
-router.delete('/api/deete/credit', creditController.DeleteCredit);
-
+router.post('/delete', creditController.DeleteCredit);
+router.post('/accomplishment', creditController.UpdateAccomplishmentGetCredit);
 
 
 

@@ -5,30 +5,26 @@ const db = require('../db')
 class expensesController {
     async AddExpenses(req,res){
         
-        // const fileName = await db.query('SELECT COUNT(*) FROM public.forwork'); 
-        // const urlFile = `http://localhost:3001/images/forWork/${Number(fileName.rows[0].count) + 1}.jpg`;
-        // const newPath = `${(path.resolve(__dirname, '..'))}/img/imgForWork/${Number(fileName.rows[0].count) + 1}.jpg`;
-        // fs.copyFile(req.files.file.path, newPath, function(err, result){  //rename
-        //     if(err){
-        //        res.writeHead(500, { 'content-type': 'text/plain' });
-        //        res.end('Server error.')
-        //        console.log(err)
-        //     }
-        //     else{
-        //         res.writeHead(200, { 'content-type': 'text/plain' });
-        //         res.end('File saved.');
-        //         console.log("Ok")
-        //     }
-        // } 
-        // ) 
-        // await db.query(`INSERT INTO public.forwork(name) values ('${urlFile}');`); 
+        const result = await db.query( `insert into expenses(name_expenses, amount) values ('${req.body.nameExpenses}', ${req.body.amount}); `);
+        if(result.rowCount===1){
+            console.log("Записался расход");
+            return res.sendStatus(200);
+        } 
+        
     }
 
     async GetExpenses(req,res){
         const result = await db.query('SELECT * FROM public.expenses')
-        //console.log(result.rows);
         return res.json(result.rows)
         
+    }
+
+    async UpdateAccomplishmentGetExpenses(req,res){
+        const result = await db.query( `UPDATE expenses SET accomplishment = ${req.body.accomplishment} WHERE expenses_id = ${req.body.expenses_id}; `);
+        if(result.rowCount===1){
+            console.log("Выполнено");
+            return res.sendStatus(200);
+        } 
     }
 
     async UpdateExpenses(req,res){
@@ -36,7 +32,12 @@ class expensesController {
     }
 
     async DeleteExpenses(req,res){
-        
+        const result = await db.query( `DELETE FROM expenses WHERE expenses_id=${req.body.expenses_id};`); 
+        //console.log(result);
+        if(result.rowCount===1){
+            console.log("удалился расход");
+            return res.sendStatus(200);
+        } 
     }
 }
 

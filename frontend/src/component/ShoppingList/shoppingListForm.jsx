@@ -24,10 +24,10 @@ let ShoppingListForm = () => {
             <Link className={cs.link} to="/shoppingList"> Назад </Link>
             <form className={cs.addCreditForm} onSubmit={handleSubmit(submit)}>
                 <div className={cs.formFiled}>
-                    <input className={cs.formInput} {...register("name")}  type="text" placeholder="Название продукта"/>
+                    <input className={cs.formInput} {...register("product_name")}  type="text" placeholder="Название продукта"/>
                 </div>
                 <div className={cs.formFiled}>
-                    <input className={cs.formInput} {...register("weight")} placeholder="Вес или кол-во"/>
+                    <input className={cs.formInput} {...register("product_quantity")} placeholder="Вес или кол-во"/>
                 </div>
                 <button className={cs.formBut} type="submit">Добавить</button>
             </form>
