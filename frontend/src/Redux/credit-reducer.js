@@ -32,7 +32,10 @@ export const CreditReduser = (state = initialState, action) =>{
             return stateCopy;
         case ADD_CREDIT:
             stateCopy = {...state};
-            stateCopy.credit=[...action.newCredit]; 
+            stateCopy.credit=[...action.newCredit.credit];
+            stateCopy.ferstNumberAmount = action.newCredit.ferstNumberAmount; 
+            stateCopy.secondNumberAmount = action.newCredit.secondNumberAmount; 
+            stateCopy.totalAmount = action.newCredit.totalAmount; 
             return stateCopy;
         default:
             return state;            

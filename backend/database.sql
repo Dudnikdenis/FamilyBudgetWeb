@@ -19,6 +19,18 @@ DELETE FROM credit;
 
 select * from credit;
 
+select FROM credit WHERE credit_id=13;
+
+create table total_amount_of_credits (id int DEFAULT 1, ferstNumberAmount NUMERIC(20,2) DEFAULT 0.00, secondNumberAmount NUMERIC(20,2) DEFAULT 0.00, totalAmount NUMERIC(20,2) DEFAULT 0.00);
+
+insert into total_amount_of_credits (ferstNumberAmount, secondNumberAmount, totalAmount) values (0.00, 0.00, 0.00);
+
+UPDATE total_amount_of_credits SET ferstNumberAmount = 300.00 WHERE id = 1;
+
+
+
+select * from total_amount_of_credits;
+
 
 таблица расходы
 

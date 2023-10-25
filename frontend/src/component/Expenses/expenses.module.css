@@ -61,3 +61,7 @@
     width: 100%;
     height: 100%;
   }
+
+  .delete_but{
+    background: url(../../Img/waste_bin_delete_remove_recycle_icon_123840.png);
+  }

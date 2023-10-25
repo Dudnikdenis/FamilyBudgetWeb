@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import { Link } from "react-router-dom";
-import cs from './credit.module.css'
+import cs from './credit.module.css';
+import Delete from "../../Img/waste_bin_delete_remove_recycle_icon_123840.png";
 
 
 
@@ -50,7 +51,7 @@ const Credit = (props) => {
                                 <div className={getColorRow(m.accomplishment)}></div>
                             </td>  
                             <td className={cs.td}>
-                                <button onClick={(e)=>{deleteCredit(e,m.credit_id)}}>Удалить</button>
+                                <img onClick={(e)=>{deleteCredit(e,m.credit_id)}} src={Delete}/>
                             </td>                            
                         </tr> 
                     )

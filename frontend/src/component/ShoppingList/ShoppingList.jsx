@@ -1,6 +1,7 @@
 import React, {useEffect} from "react";
 import { Link } from "react-router-dom";
-import cs from './shoppingList.module.css'
+import cs from './shoppingList.module.css';
+import Delete from "../../Img/waste_bin_delete_remove_recycle_icon_123840.png";
 
 
 
@@ -49,7 +50,7 @@ const ShoppingList = (props) => {
                                 <div className={getColorRow(m.accomplishment)}></div>
                             </td> 
                             <td className={cs.td}>
-                                <button onClick={(e)=>{deleteShoppingList(e,m.shoppinglist_id)}}>Удалить</button>
+                                <img onClick={(e)=>{deleteShoppingList(e,m.shoppinglist_id)}} src={Delete}/>
                             </td>                            
                         </tr> 
                     )

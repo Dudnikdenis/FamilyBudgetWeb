@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import { Link } from "react-router-dom";
-import cs from './expenses.module.css'
+import cs from './expenses.module.css';
+import Delete from "../../Img/waste_bin_delete_remove_recycle_icon_123840.png";
 
 
 const Expenses = (props) => { 
@@ -44,7 +45,7 @@ const Expenses = (props) => {
                                     <div className={getColorRow(m.accomplishment)}></div>
                             </td>
                             <td className={cs.td}>
-                                <button onClick={(e)=>{deleteExpenses(e,m.expenses_id)}}>Удалить</button>
+                                <img onClick={(e)=>{deleteExpenses(e,m.expenses_id)}} src={Delete}/>
                             </td>                              
                         </tr> 
                     
