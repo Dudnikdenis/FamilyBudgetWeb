@@ -12,8 +12,9 @@ import {
   import ExpensesReduxForm from '../Expenses/expensesForm';
   import ShoppingListContainer from "../ShoppingList/ShoppingListContainer";
 import ShoppingListForm from "../ShoppingList/shoppingListForm";
-import Authorization from "../Authorization/authorization"
+import Authorization from "../Authorization/authorization";
 import logo from '../../Img/pngegg.png'
+import CommunalPaymentsContainer from "../CommunalPayments/communalPaymentsContainer";
 
 
 const Main = (props) => { 
@@ -38,6 +39,9 @@ const Main = (props) => {
                         <div className={cs.tabs}>
                             <Link className={cs.link} to="/shoppingList" >Список покупок</Link>
                         </div>
+                        <div className={cs.tabs}>
+                            <Link className={cs.link} to="/communalPayments" >Коммунальные платежи</Link>
+                        </div>
                     </div>
                     <div className={cs.main}>
                         <Routes>
@@ -47,7 +51,8 @@ const Main = (props) => {
                             <Route path="/add/credit" element = {<CreditReduxForm /> }/> 
                             <Route path="/add/expenses" element = {<ExpensesReduxForm /> }/>                         
                             <Route path="/shoppingList" element = {<ShoppingListContainer /> }/> 
-                            <Route path="/add/shoppingList" element = {<ShoppingListForm /> }/> 
+                            <Route path="/add/shoppingList" element = {<ShoppingListForm /> }/>
+                            <Route path="/communalPayments" element = {<CommunalPaymentsContainer /> }/> 
                         </Routes>
                     </div>
                 </BrowserRouter>

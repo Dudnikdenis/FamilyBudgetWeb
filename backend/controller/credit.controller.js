@@ -21,7 +21,7 @@ class creditController {
     async AddCredit(req,res){
         const total_amount = await db.query('select * from total_amount_of_credits where id = 1;' );
         const result = await db.query( `insert into credit(nameBank, datePayment, amount) values ('${req.body.nameBank}', ${req.body.datePayment}, '${req.body.amount}');`); 
-        if(req.body.datePayment<14){
+        if(req.body.datePayment<=13){
             let ferst = Number(req.body.amount)+Number(total_amount.rows[0].ferstnumberamount);
             await db.query( `UPDATE total_amount_of_credits SET ferstNumberAmount = ${ferst} WHERE id = 1;`);// надо убрать повторение
         }
@@ -34,7 +34,6 @@ class creditController {
             await db.query( `UPDATE total_amount_of_credits SET totalAmount = ${total} WHERE id = 1;`);
 
         if(result.rowCount===1){
-            console.log("Записался кредит");
             return res.sendStatus(200);
         } 
     };    
@@ -50,9 +49,7 @@ class creditController {
         const credit = await db.query( `select * FROM credit WHERE credit_id=${req.body.credit_id};`);
         const total_amount = await db.query('select * from total_amount_of_credits where id = 1;' );
         const result = await db.query( `DELETE FROM credit WHERE credit_id=${req.body.credit_id};`); 
-         
-        console.log(req.body.credit_id);
-        if(credit.rows[0].datepayment<14){
+        if(credit.rows[0].datepayment<=13){
             let ferst = Number(total_amount.rows[0].ferstnumberamount)-Number(credit.rows[0].amount);
             await db.query( `UPDATE total_amount_of_credits SET ferstNumberAmount = ${ferst} WHERE id = 1;`);// надо убрать повторение
         }
