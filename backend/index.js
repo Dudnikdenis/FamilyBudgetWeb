@@ -3,6 +3,7 @@ const cors = require('cors');
 const creditRouter = require('./routes/credit.routes');
 const expensesRouter = require('./routes/expenses.routes');
 const shoppingListRouter = require('./routes/shoppingList.routes');
+const communalPaymentsRouter = require('./routes/communalPayments.routes')
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -17,6 +18,7 @@ app.use((req, res, next)=>{
 app.use('/credit', creditRouter);
 app.use('/expenses', expensesRouter);
 app.use('/shoppingList', shoppingListRouter);
+app.use('/communalPayments', communalPaymentsRouter);
 
 
 // app.get('/api/credit', (req, res) => {
