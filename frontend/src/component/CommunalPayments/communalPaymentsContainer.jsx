@@ -1,6 +1,6 @@
 import communalPayments from "./communalPayments";
 import { connect } from "react-redux";
-import { postAddCommunalPayments, getCommunalPayments, deleteCommunalPayments} from "../../Redux/communalPayments-reducer";
+import { getCommunalPayments, Records_indications} from "../../Redux/communalPayments-reducer";
 
 
 
@@ -12,9 +12,8 @@ const mapStateToProps = (state) =>{
 }
 
 const CommunalPaymentsContainer= connect(mapStateToProps,{
-    postAddCommunalPayments,
     getCommunalPayments,
-    deleteCommunalPayments
+    Records_indications
     })(communalPayments);
 
 export default CommunalPaymentsContainer;

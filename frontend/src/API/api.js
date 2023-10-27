@@ -85,4 +85,18 @@ export const FBWAPI = {
         console.log(response);
          });
     },
+
+    async AddIndications(indications) 
+    {
+         return await instance.post("communalPayments/add", indications).then(response=>{
+        console.log(response);
+         });
+    },
+
+    async GetCommunalPayments() 
+    {
+        return await instance.get("communalPayments/get").then(response => {           
+            return response.data
+        });
+    },
 }
