@@ -1,0 +1,77 @@
+.total{
+    display: grid;
+    grid-template-areas:
+"header header header"
+"panel panel panel ";
+    grid-template-rows: 60px 1fr;
+    grid-template-columns: 2fr 10fr;
+
+ }
+
+.header{
+    grid-area: header;
+    border-radius: 20px;
+    background-color: #808080;
+    background: linear-gradient(90deg, rgba(128,128,128,1) 0%, rgba(255,255,255,1) 46%);
+    margin: 5px;
+    display: grid;
+    grid-template-areas:
+    "img div but";
+    grid-template-columns: 1fr 15fr 1fr;
+} 
+
+.panel{
+    grid-area: panel;
+    border-radius: 20px;
+    height: 1000px;
+    background-color: rgb(108, 119, 151);
+    padding: 30px;
+    margin: 5px;
+}
+
+.img{
+    grid-area: img;
+    padding: 2px;
+    padding-left: 10px;
+  }
+
+.divHeader{
+    grid-area: div;
+    padding: 10px;
+}
+
+.butHeader{
+    grid-area: but;
+    padding: 10px;
+
+}
+
+
+
+.main{
+    grid-area: main;
+    border-radius: 20px;
+    height: 1000px;
+    background-color: rgb(185, 199, 243);
+    padding: 50px;
+    margin: 5px;
+}
+
+.tabs{
+    padding-bottom: 15px;
+}
+
+.link{
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+  }
+
+  .linkAuthor{
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+  }
+
+  
+  

@@ -1,19 +1,28 @@
 import './App.css';
-import {
-  BrowserRouter, Routes,
-  Route,
-} from 'react-router-dom'
-
-import CreditContainer from './component/TableCredit/creditContainer';
-import ExpensesContainer from './component/Expenses/expensesContainer';
+import { useMediaQuery } from 'react-responsive'
 import Main from './component/Main/Main';
-import CreditReduxForm from './component/TableCredit/creditForm'
+import MainMobile from './componentMobile/Main/MainMobile';
 
 function App() {
-  return (
+  const isDesktop = useMediaQuery({
+    query: "(min-width: 1224px)"
+  });
 
-    <Main/>
-    // <div className="App">
+  const isMobile = useMediaQuery({
+    query: "(max-width: 786px)"
+  });
+  return (
+<>
+{isDesktop&&<Main/>}
+{isMobile&&<MainMobile/>}
+</>
+  );
+}
+
+export default App;
+
+
+// <div className="App">
     //   <BrowserRouter>
     //                 <Routes>
     //                     <Route path='/' element = {<Main/>  }/>
@@ -23,7 +32,3 @@ function App() {
     //                 </Routes>
     //         </BrowserRouter>
     // </div>
-  );
-}
-
-export default App;
