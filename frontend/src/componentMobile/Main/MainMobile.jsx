@@ -6,16 +6,15 @@ import {
     Route,
   } from 'react-router-dom'
   
-import CreditContainer from '../TableCredit/creditContainer';
+import CreditContainer from '../TableCreditmobile/creditContainer';
 import SelectorMoble from "./SelectorMobile";
-//   import ExpensesContainer from '../Expenses/expensesContainer';
-//   import CreditReduxForm from '../TableCredit/creditForm';
-//   import ExpensesReduxForm from '../Expenses/expensesForm';
-//   import ShoppingListContainer from "../ShoppingList/ShoppingListContainer";
-// import ShoppingListForm from "../ShoppingList/shoppingListForm";
-// import Authorization from "../Authorization/authorization";
+import ExpensesContainer from '../Expenses/expensesContainer';
+import CreditReduxForm from '../TableCreditmobile/creditForm';
+import ExpensesReduxForm from '../Expenses/expensesForm';
+import ShoppingListContainer from "../ShoppingList/ShoppingListContainer";
+import ShoppingListForm from "../ShoppingList/shoppingListForm";
+//import Authorization from "../Authorization/authorization";
 import logo from '../../Img/pngegg.png'
-//import CommunalPaymentsContainer from "../CommunalPayments/communalPaymentsContainer";
 
 
 const MainMoble = (props) => { 
@@ -34,6 +33,11 @@ const MainMoble = (props) => {
                     <Routes>
                         <Route path='/' element = {<SelectorMoble/>}/>
                         <Route path='/credit' element = {<CreditContainer/>}/>
+                        <Route path='/expenses' element = {<ExpensesContainer/>}/>
+                        <Route path="/add/credit" element = {<CreditReduxForm /> }/> 
+                        <Route path="/add/expenses" element = {<ExpensesReduxForm /> }/> 
+                        <Route path="/shoppingList" element = {<ShoppingListContainer /> }/> 
+                        <Route path="/add/shoppingList" element = {<ShoppingListForm /> }/>
                     </Routes>
                 </div>
                 </BrowserRouter>

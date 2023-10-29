@@ -17,9 +17,6 @@ const SelectorMoble = (props) => {
             <div className={cs.tabs}>
                 <Link className={cs.link} to="/shoppingList" >Список покупок</Link>
             </div>
-            <div className={cs.tabs}>
-                <Link className={cs.link} to="/communalPayments" >Коммунальные платежи</Link>
-            </div>
         </div>
            
     )

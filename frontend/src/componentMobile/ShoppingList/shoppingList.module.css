@@ -1,11 +1,10 @@
 .creditDiv{
   display: grid;
     grid-template-areas:
-"table "
-"total_amount "
-"button";
+"table total_amount"
+"add add";
     grid-template-rows: 1fr 1fr;
-    grid-template-columns: 1fr ;
+    grid-template-columns: 1fr 1fr;
 }
 
 .table{
@@ -13,7 +12,7 @@
     border: 1px solid grey;
     border-collapse: collapse;
     padding-bottom: 15px;
-    font-size: 15px;
+    font-size: 12px;
 }
 
 .td{
@@ -32,7 +31,12 @@
 
 
 .addCredit{
-  grid-area: button;
+  grid-area: add;
+    padding-top: 15px;
+}
+
+.resetShoppingList{
+  grid-area: reset;
     padding-top: 15px;
 }
 
@@ -43,19 +47,18 @@
     background-color: grey;
     border-radius: 5px;
     color: black;
-    font-size: 18px;
-    padding: 5px;
+    font-size: 12px;
+    margin: 5px;
     
   }
 
   .total_amount{
     margin: 0 auto;
-    margin-top: 20px;
     grid-area: total_amount;
     border: 1px solid grey;
     border-collapse: collapse;
     padding-bottom: 15px;
-    font-size: 15px;
+    font-size: 12px;
     width: 200px;
     height: 50px;
   }

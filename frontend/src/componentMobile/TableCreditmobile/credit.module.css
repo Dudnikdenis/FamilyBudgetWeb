@@ -1,10 +1,11 @@
 .creditDiv{
   display: grid;
     grid-template-areas:
-"table total_amount"
-"button  button";
-    grid-template-rows: 1fr 1fr;
-    grid-template-columns: 1fr 1fr;
+"table "
+"button"
+"total_amount ";
+    grid-template-rows: auto;
+    grid-template-columns: 1fr ;
 }
 
 .table{
@@ -12,19 +13,19 @@
     border: 1px solid grey;
     border-collapse: collapse;
     padding-bottom: 15px;
-    font-size: 20px;
+    font-size: 15px;
 }
 
 .td{
     border: 1px solid black;
     width: 100px;
-    height: 25px;
+    height: 5px;
 }
 
 .td_name{
     border: 1px solid black;
     width: 170px;
-    height: 25px;
+    height: 5px;
 }
 
 
@@ -42,18 +43,18 @@
     background-color: grey;
     border-radius: 5px;
     color: black;
-    font-size: 25px;
-    padding: 5px;
+    font-size: 12px;
     
   }
 
   .total_amount{
     margin: 0 auto;
+    margin-top: 20px;
     grid-area: total_amount;
     border: 1px solid grey;
     border-collapse: collapse;
     padding-bottom: 15px;
-    font-size: 20px;
+    font-size: 11px;
     width: 200px;
     height: 50px;
   }
@@ -61,7 +62,7 @@
   .td_total_amount{
     border: 1px solid black;
     width: 100px;
-    height: 25px;
+    height: 11px;
 }
 
   .addCreditForm{

@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import { Link } from "react-router-dom";
 import cs from './credit.module.css';
-import Delete from "../../Img/waste_bin_delete_remove_recycle_icon_123840.png";
+import Delete from "../../Img/delete_icon.png";
 
 
 
@@ -42,7 +42,7 @@ const Credit = (props) => {
                                 <div>{m.namebank}</div>
                             </td>
                             <td className={cs.td}>
-                                <div >{m.datepayment}</div>
+                                <div>{m.datepayment}</div>
                             </td>
                             <td className={cs.td}>
                                 <div>{m.amount}</div>
