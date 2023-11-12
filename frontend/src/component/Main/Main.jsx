@@ -15,6 +15,7 @@ import ShoppingListForm from "../ShoppingList/shoppingListForm";
 import Authorization from "../Authorization/authorization";
 import logo from '../../Img/pngegg.png'
 import CommunalPaymentsContainer from "../CommunalPayments/communalPaymentsContainer";
+import ActualExpensesContainer from "../ActualExpenses/actualExpensesContainer";
 
 
 const Main = (props) => { 
@@ -42,6 +43,9 @@ const Main = (props) => {
                         <div className={cs.tabs}>
                             <Link className={cs.link} to="/communalPayments" >Коммунальные платежи</Link>
                         </div>
+                        <div className={cs.tabs}>
+                            <Link className={cs.link} to="/actualExpenses" >Фактические расходы</Link>
+                        </div>
                     </div>
                     <div className={cs.main}>
                         <Routes>
@@ -53,6 +57,7 @@ const Main = (props) => {
                             <Route path="/shoppingList" element = {<ShoppingListContainer /> }/> 
                             <Route path="/add/shoppingList" element = {<ShoppingListForm /> }/>
                             <Route path="/communalPayments" element = {<CommunalPaymentsContainer /> }/> 
+                            <Route path="/actualExpenses" element = {<ActualExpensesContainer /> }/> 
                         </Routes>
                     </div>
                 </BrowserRouter>

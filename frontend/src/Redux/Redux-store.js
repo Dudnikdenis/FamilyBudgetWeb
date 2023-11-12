@@ -5,12 +5,14 @@ import { reducer as formReducer } from 'redux-form'
 import ExpensesReduser from "./expenses-reducer";
 import ShoppingListReducer from "./ShoppingList-reducer";
 import CommunalPaymentsReduser from "./communalPayments-reducer";
+import ActualExpensesReduser from "./actualExpenses-reducer";
 
 let reducers = combineReducers({
     expenses: ExpensesReduser,
     credit: creditReducer,
     ShoppingList: ShoppingListReducer,
     communalPayments: CommunalPaymentsReduser,
+    actualExpensesReduser: ActualExpensesReduser,
     form: formReducer
 })
 

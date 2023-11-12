@@ -1,0 +1,43 @@
+.AEdiv{
+  display: grid;
+    grid-template-areas:
+"AEheader "
+"table"
+"button";
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.AEheader{
+  grid-area: AEheader;
+    border: 1px solid grey;
+    border-collapse: collapse;
+    padding-bottom: 15px;
+    font-size: 20px;
+}
+
+.table{
+  grid-area: table;
+    border: 1px solid grey;
+    border-collapse: collapse;
+    padding-bottom: 15px;
+    font-size: 20px;
+}
+
+.td{
+    border: 1px solid black;
+    width: 50px;
+    height: 25px;
+}
+
+.mounth{
+  font-size: 35px;
+}
+
+.expensesButton{
+  grid-area: button;
+  margin-top: 10px;
+  width: 150px;
+  height: 40px;
+  font-size: 25px;
+}
