@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const instance = axios.create({
-    baseURL: 'http://80.244.39.148:3001/',
+    baseURL: 'http://80.244.39.148:3001/', //'http://80.244.39.148:3001/'
     headers: {
         'accept': '*/*',
         'Content-Type': 'application/json'
@@ -98,5 +98,33 @@ export const FBWAPI = {
         return await instance.get("communalPayments/get").then(response => {           
             return response.data
         });
+    },
+
+    async GetCategoryList() 
+    {
+        return await instance.get("actualExpenses/category").then(response => {           
+            return response.data
+        });
+    },
+
+    async AddCategory(category) // надо также переписать остальные запросы (убрать все одинаковые)
+    {
+         return await instance.post(`actualExpenses/addCategory`, category).then(response=>{
+        console.log(response);
+         });
+    },
+
+    async AddActualExpenses(actualExpenses) 
+    {
+         return await instance.post(`actualExpenses/add`, actualExpenses).then(response=>{
+        console.log(response);
+         });
+    },
+
+    async GetActualExpenses() // надо также переписать остальные запросы (убрать все одинаковые)
+    {
+         return await instance.get(`actualExpenses/get`).then(response=>{
+            return response.data;
+         });
     },
 }

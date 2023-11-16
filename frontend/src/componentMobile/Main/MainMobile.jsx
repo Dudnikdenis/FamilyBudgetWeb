@@ -15,9 +15,12 @@ import ShoppingListContainer from "../ShoppingList/ShoppingListContainer";
 import ShoppingListForm from "../ShoppingList/shoppingListForm";
 //import Authorization from "../Authorization/authorization";
 import logo from '../../Img/pngegg.png'
+import ActualExpensesContainer from "../ActualExpenses/actualExpensesContainer";
+import ActualExpensesFormContainer from "../ActualExpenses/actualExpensesFormContainer";
+import AddCategoryForm from "../ActualExpenses/addCategoryForm";
 
 
-const MainMoble = (props) => { 
+const MainMoble = () => { 
     
     return(
             <div className={cs.total}>
@@ -38,6 +41,9 @@ const MainMoble = (props) => {
                         <Route path="/add/expenses" element = {<ExpensesReduxForm /> }/> 
                         <Route path="/shoppingList" element = {<ShoppingListContainer /> }/> 
                         <Route path="/add/shoppingList" element = {<ShoppingListForm /> }/>
+                        <Route path="/actualExpenses" element = {<ActualExpensesContainer /> }/> 
+                        <Route path="/add/actualExpenses" element = {<ActualExpensesFormContainer /> }/>
+                        <Route path="/add/category" element = {<AddCategoryForm/> }/>
                     </Routes>
                 </div>
                 </BrowserRouter>

@@ -13,7 +13,7 @@ const ActualExpenses = (props) => {
     
     return(
         <div className={cs.AEdiv}>
-            <b><div className={cs.mounth}>{props.mounthActualExpenses}</div></b>
+            <b><div className={cs.AEheader}>{props.mounthActualExpenses}</div></b>
             <table className={cs.table}>
                 <tr>
                     <th className={cs.td}>категория</th>

@@ -1,19 +1,13 @@
 import { FBWAPI } from "../API/api";
 
 const ADD_ACTUAL_EXPENSES = "ADD_ACTUAL_EXPENSES";
+const ADD_CATEGORY_LIST = "ADD_CATEGORY_LIST";
 
 let initialState = {
+  categoryList: [],
+
   mounthActualExpenses:"Октябрь",//надо переделать (с API будет приходить цифра соответствующая месяцу)
-  actualExpenses:[
-    {
-      category:"кредиты",
-      amount:"59000"
-    },
-    {
-      category:"газ/бензин машина",
-      amount:"5000"
-    }
-]
+  actualExpenses:[]
 }
 
 export const actualExpensesReduser = (state = initialState, action) =>{
@@ -21,34 +15,54 @@ export const actualExpensesReduser = (state = initialState, action) =>{
     switch(action.type){
         case ADD_ACTUAL_EXPENSES:
             stateCopy = {...state};
-            stateCopy.credit=[...action.newCredit.credit];
-            stateCopy.ferstNumberAmount = action.newCredit.ferstNumberAmount; 
-            stateCopy.secondNumberAmount = action.newCredit.secondNumberAmount; 
-            stateCopy.totalAmount = action.newCredit.totalAmount; 
+            stateCopy.actualExpenses=[...action.newActualExpenses.actualExpenses];
+            stateCopy.mounthActualExpenses = action.newActualExpenses.month
             return stateCopy;
+        case ADD_CATEGORY_LIST:
+          stateCopy = {...state};
+          stateCopy.categoryList=[...action.newCategoryList];
+          return stateCopy;
         default:
             return state;            
     }
 };
 
 export const AddActualExpensesCreator = (newActualExpenses) =>({type:ADD_ACTUAL_EXPENSES, newActualExpenses});
+export const AddCategoryListCreator = (newCategoryList) =>({type:ADD_CATEGORY_LIST, newCategoryList});
 
-// export const getCredit = () => {   // Thunk
-//     return (dispatch) => {
-//       FBWAPI.GetCredit().then(response => {
-//         dispatch (AddCreditCreator(response))
-//       });
-//     };
-// };
+export const getCategoryList = () => { 
+    return (dispatch) => {
+      FBWAPI.GetCategoryList().then(response => {
+        dispatch (AddCategoryListCreator(response))
+      });
+    };
+};
 
-// export const postAddCredit = (credit) => {
-//     FBWAPI.AddCredit(credit);
-//     return (dispatch) => {
-//     FBWAPI.GetCredit().then(response => {
-//         dispatch (AddCreditCreator(response)) // надо доделать
-//       });
-//     }
-// };
+export const getActualExpenses = () => { 
+  return (dispatch) => {
+    FBWAPI.GetActualExpenses().then(response => {
+      dispatch (AddActualExpensesCreator(response))
+    });
+  };
+};
+
+export const postAddActualExpenses = (actualExpenses) => {
+  FBWAPI.AddActualExpenses(actualExpenses);
+    return (dispatch) => {
+    FBWAPI.GetActualExpenses().then(response => {
+        dispatch (AddActualExpensesCreator(response)) // надо доделать
+      });
+    }
+};
+
+export const postNewCategory = (category) => {
+  FBWAPI.AddCategory(category);
+  return (dispatch) => {
+    FBWAPI.GetCategoryList().then(response => {
+      dispatch (AddCategoryListCreator(response))
+    });
+  }
+};
 
 
 // export const deleteCredit = (credit_id) => {

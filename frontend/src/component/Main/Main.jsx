@@ -16,6 +16,8 @@ import Authorization from "../Authorization/authorization";
 import logo from '../../Img/pngegg.png'
 import CommunalPaymentsContainer from "../CommunalPayments/communalPaymentsContainer";
 import ActualExpensesContainer from "../ActualExpenses/actualExpensesContainer";
+import ActualExpensesFormContainer from "../ActualExpenses/actualExpensesFormContainer";
+import AddCategoryForm from "../ActualExpenses/addCategoryForm";
 
 
 const Main = (props) => { 
@@ -58,6 +60,8 @@ const Main = (props) => {
                             <Route path="/add/shoppingList" element = {<ShoppingListForm /> }/>
                             <Route path="/communalPayments" element = {<CommunalPaymentsContainer /> }/> 
                             <Route path="/actualExpenses" element = {<ActualExpensesContainer /> }/> 
+                            <Route path="/add/actualExpenses" element = {<ActualExpensesFormContainer /> }/>
+                            <Route path="/add/category" element = {<AddCategoryForm/> }/>
                         </Routes>
                     </div>
                 </BrowserRouter>
