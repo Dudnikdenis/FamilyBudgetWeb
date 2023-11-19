@@ -35,6 +35,14 @@ class actualExpensesController {
             
     }; 
 
+
+    async UpdateActualExpenses(req,res){
+
+        const date = new Date();
+        await db.query(`UPDATE actual_expenses SET amount = ${req.body.amount} WHERE category_id = ${req.body.category} and month = ${date.getMonth()};`);
+        return res = "Ok";
+    }; 
+
     async AddCategory(req,res){
         await db.query(`insert into category(category) values ('${req.body.category}');`);        
         return res = "Ok";

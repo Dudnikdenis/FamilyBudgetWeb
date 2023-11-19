@@ -2,7 +2,8 @@
 import React, {useState, useEffect} from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate} from "react-router-dom";
-import cs from './actualExpenses.module.css'
+import cs from './actualExpenses.module.css';
+import Back from "../../Img/backIcon.png";
 
 
 let ActualExpensesForm = (props) => {
@@ -13,16 +14,18 @@ let ActualExpensesForm = (props) => {
 
     const [select, setSelect] = useState();
 
+    
     const navigate = useNavigate();
 
     const { register, handleSubmit } = useForm();
 
     const submit = (dataForm) => {
+        
         let res = {
             category:select,
             amount:dataForm.amount
           };
-        props.postAddActualExpenses(res);
+        props.postAddActualExpenses(res);   
         navigate('/actualExpenses');
     }
     const handleChange = (event) =>{
@@ -30,12 +33,16 @@ let ActualExpensesForm = (props) => {
     }
     
     return( 
-        <div >
-            <Link className={cs.link} to="/actualExpenses"> Назад </Link>
+        <>
+        <Link  className={cs.backIcon} to="/actualExpenses">
+            <img src={Back}/>
+        </Link>
+        <div >            
             <form className={cs.addCreditForm} onSubmit={handleSubmit(submit)}>
                 <div className={cs.formFiled}>
                 <label>Категория:
                     <select value={select} onChange={handleChange}>
+                    <option value='0'>выбери категорию</option>
                         {props.categoryList.map(c=><option value={c.id}>{c.category}</option>)}
                     </select>
                 </label>
@@ -47,6 +54,7 @@ let ActualExpensesForm = (props) => {
                 <button className={cs.formBut} type="submit">Добавить</button>
             </form>
         </div>
+        </>
     
     )
 }

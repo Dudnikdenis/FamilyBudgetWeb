@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate} from "react-router-dom";
 import cs from './shoppingList.module.css'
 import { postAddShoppingList } from "../../Redux/ShoppingList-reducer";
+import Back from "../../Img/backIcon.png";
 
 
 let ShoppingListForm = () => {
@@ -20,8 +21,11 @@ let ShoppingListForm = () => {
 
     
     return( 
+        <>
+        <Link  className={cs.backIcon} to="/shoppingList">
+            <img src={Back}/>
+        </Link>
         <div >
-            <Link className={cs.link} to="/shoppingList"> Назад </Link>
             <form className={cs.addCreditForm} onSubmit={handleSubmit(submit)}>
                 <div className={cs.formFiled}>
                     <input className={cs.formInput} {...register("product_name")}  type="text" placeholder="Название продукта"/>
@@ -32,6 +36,7 @@ let ShoppingListForm = () => {
                 <button className={cs.formBut} type="submit">Добавить</button>
             </form>
         </div>
+        </>
     
     )
 }

@@ -55,6 +55,15 @@ export const postAddActualExpenses = (actualExpenses) => {
     }
 };
 
+export const postUpdateActualExpenses = (actualExpenses) => {
+  FBWAPI.UpdateActualExpenses(actualExpenses);
+    return (dispatch) => {
+    FBWAPI.GetActualExpenses().then(response => {
+        dispatch (AddActualExpensesCreator(response)) // надо доделать
+      });
+    }
+};
+
 export const postNewCategory = (category) => {
   FBWAPI.AddCategory(category);
   return (dispatch) => {

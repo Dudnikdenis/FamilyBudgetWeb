@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const instance = axios.create({
-    baseURL: 'http://80.244.39.148:3001/', //'http://80.244.39.148:3001/'
+    baseURL: 'http://localhost:3001/', //'http://80.244.39.148:3001/'
     headers: {
         'accept': '*/*',
         'Content-Type': 'application/json'
@@ -117,6 +117,13 @@ export const FBWAPI = {
     async AddActualExpenses(actualExpenses) 
     {
          return await instance.post(`actualExpenses/add`, actualExpenses).then(response=>{
+        console.log(response);
+         });
+    },
+
+    async UpdateActualExpenses(actualExpenses) 
+    {
+         return await instance.post(`actualExpenses/update`, actualExpenses).then(response=>{
         console.log(response);
          });
     },

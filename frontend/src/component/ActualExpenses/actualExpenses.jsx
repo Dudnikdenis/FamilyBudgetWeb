@@ -29,6 +29,7 @@ const ActualExpenses = (props) => {
             <div className={cs.buttons}>
                 <Link to = "/add/actualExpenses" className={cs.expensesButton}>потратил</Link>
                 <Link  className={cs.AELink} to="/add/category">Добавить категорию</Link>
+                <Link  className={cs.AELinkUpdate} to="/update/actualExpenses">Изменить</Link>
             </div>
         </div>
     )

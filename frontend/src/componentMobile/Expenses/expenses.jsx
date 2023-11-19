@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import { Link } from "react-router-dom";
 import cs from './expenses.module.css';
 import Delete from "../../Img/delete_icon.png";
+import Back from "../../Img/backIcon.png";
 
 
 const Expenses = (props) => { 
@@ -26,7 +27,11 @@ const Expenses = (props) => {
      }
 
     return(
-        <div>
+        <>
+        <Link  className={cs.backIcon} to="/">
+            <img src={Back}/>
+        </Link>
+        <div>            
             <table  className={cs.table}>
                         <tr>
                             <th className={cs.td_name}>Название</th>
@@ -56,6 +61,7 @@ const Expenses = (props) => {
                     <Link className={cs.link} to="/add/expenses" > Добавить </Link>
                 </div>
         </div>
+        </>
     )
 }
 

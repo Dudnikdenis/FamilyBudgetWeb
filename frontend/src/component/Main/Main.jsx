@@ -18,6 +18,7 @@ import CommunalPaymentsContainer from "../CommunalPayments/communalPaymentsConta
 import ActualExpensesContainer from "../ActualExpenses/actualExpensesContainer";
 import ActualExpensesFormContainer from "../ActualExpenses/actualExpensesFormContainer";
 import AddCategoryForm from "../ActualExpenses/addCategoryForm";
+import UpdateActualExpensesFormContainer from "../ActualExpenses/updateActualExpensesFormContainer";
 
 
 const Main = (props) => { 
@@ -62,6 +63,7 @@ const Main = (props) => {
                             <Route path="/actualExpenses" element = {<ActualExpensesContainer /> }/> 
                             <Route path="/add/actualExpenses" element = {<ActualExpensesFormContainer /> }/>
                             <Route path="/add/category" element = {<AddCategoryForm/> }/>
+                            <Route path="/update/actualExpenses" element = {<UpdateActualExpensesFormContainer /> }/>
                         </Routes>
                     </div>
                 </BrowserRouter>

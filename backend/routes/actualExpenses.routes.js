@@ -6,6 +6,7 @@ router.post('/add', actualExpensesController.AddActualExpenses);
 router.get('/get', actualExpensesController.GetActualExpenses);
 router.get('/category', actualExpensesController.GetCategory);
 router.post('/addCategory', actualExpensesController.AddCategory);
+router.post('/update', actualExpensesController.UpdateActualExpenses);
 
 
 

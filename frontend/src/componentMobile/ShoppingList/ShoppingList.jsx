@@ -2,6 +2,7 @@ import React, {useEffect} from "react";
 import { Link } from "react-router-dom";
 import cs from './shoppingList.module.css';
 import Delete from "../../Img/waste_bin_delete_remove_recycle_icon_123840.png";
+import Back from "../../Img/backIcon.png";
 
 
 
@@ -30,7 +31,11 @@ const ShoppingList = (props) => {
      }
 
     return(
-        <div className={cs.creditDiv}>
+        <>
+        <Link  className={cs.backIcon} to="/">
+            <img src={Back}/>
+        </Link>
+        <div className={cs.shopingListDiv}>
             {props.shoppingList?
             <table className={cs.table}>
                         <tr>
@@ -61,6 +66,7 @@ const ShoppingList = (props) => {
                 <button className={cs.link} onClick={deleteList} >  Очистить </button>
            </div>
         </div>
+        </>
     )
 }
 

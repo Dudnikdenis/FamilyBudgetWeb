@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate} from "react-router-dom";
 import cs from './actualExpenses.module.css';
 import { postNewCategory } from "../../Redux/actualExpenses-reducer";
+import Back from "../../Img/backIcon.png";
 
 
 let AddCategoryForm = () => {
@@ -18,8 +19,11 @@ let AddCategoryForm = () => {
     }
     
     return( 
+        <>
+        <Link  className={cs.backIcon} to="/actualExpenses">
+            <img src={Back}/>
+        </Link>
         <div >
-            <Link className={cs.link} to="/actualExpenses"> Назад </Link>
             <form className={cs.addCreditForm} onSubmit={handleSubmit(submit)}>
                 <div className={cs.formFiled}>                    
                     <input className={cs.formInput} {...register("category")} placeholder="Введите категорию"/>
@@ -27,6 +31,7 @@ let AddCategoryForm = () => {
                 <button className={cs.formBut} type="submit">Добавить</button>
             </form>
         </div>
+        </>
     
     )
 }

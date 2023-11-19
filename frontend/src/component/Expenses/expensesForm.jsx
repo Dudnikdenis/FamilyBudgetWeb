@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import cs from './expenses.module.css';
 import { postAddExpenses } from "../../Redux/expenses-reducer";
+import Back from "../../Img/backIcon.png";
 
 
 let ExpensesReduxForm = (props) => {
@@ -17,8 +18,11 @@ let ExpensesReduxForm = (props) => {
 
 
     return (
-        <div >
-            <Link className={cs.link} to="/expenses"> Назад </Link>
+        <>
+        <Link  className={cs.backIcon} to="/expenses">
+            <img src={Back}/>
+        </Link>
+        <div >            
             <div className={cs.divForm}>
             <form className={cs.addForm} onSubmit={handleSubmit(submit)}>
                 <div className={cs.formFiled}>
@@ -31,6 +35,7 @@ let ExpensesReduxForm = (props) => {
             </form>
             </div>
         </div>
+        </>
     )
 }
 

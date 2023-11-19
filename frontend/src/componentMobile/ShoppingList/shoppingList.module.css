@@ -1,10 +1,11 @@
-.creditDiv{
+.shopingListDiv{
   display: grid;
     grid-template-areas:
 "table total_amount"
 "add add";
     grid-template-rows: 1fr 1fr;
     grid-template-columns: 1fr 1fr;
+    margin-top: 15px;
 }
 
 .table{

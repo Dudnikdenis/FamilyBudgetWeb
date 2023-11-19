@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import { Link } from "react-router-dom";
 import cs from './credit.module.css';
 import Delete from "../../Img/delete_icon.png";
+import Back from "../../Img/backIcon.png";
 
 
 
@@ -28,7 +29,12 @@ const Credit = (props) => {
 
 
     return(
+        <>
+        <Link  className={cs.backIcon} to="/">
+            <img src={Back}/>
+        </Link>
         <div className={cs.creditDiv}>
+            
             <table className={cs.table}>
                         <tr>
                             <th className={cs.td_name}>Название банка</th>
@@ -77,6 +83,7 @@ const Credit = (props) => {
                 </tr>
            </table>
         </div>
+        </>
     )
 }
 

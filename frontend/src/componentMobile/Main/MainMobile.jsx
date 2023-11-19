@@ -18,6 +18,7 @@ import logo from '../../Img/pngegg.png'
 import ActualExpensesContainer from "../ActualExpenses/actualExpensesContainer";
 import ActualExpensesFormContainer from "../ActualExpenses/actualExpensesFormContainer";
 import AddCategoryForm from "../ActualExpenses/addCategoryForm";
+import UpdateActualExpensesFormContainer from "../../component/ActualExpenses/updateActualExpensesFormContainer";
 
 
 const MainMoble = () => { 
@@ -44,6 +45,7 @@ const MainMoble = () => {
                         <Route path="/actualExpenses" element = {<ActualExpensesContainer /> }/> 
                         <Route path="/add/actualExpenses" element = {<ActualExpensesFormContainer /> }/>
                         <Route path="/add/category" element = {<AddCategoryForm/> }/>
+                        <Route path="/update/actualExpenses" element = {<UpdateActualExpensesFormContainer /> }/>
                     </Routes>
                 </div>
                 </BrowserRouter>
