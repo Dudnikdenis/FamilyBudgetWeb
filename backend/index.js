@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const authRouter = require('./routes/auth.routes')
 const creditRouter = require('./routes/credit.routes');
 const expensesRouter = require('./routes/expenses.routes');
 const shoppingListRouter = require('./routes/shoppingList.routes');
@@ -17,36 +18,13 @@ app.use((req, res, next)=>{
     res.setHeader('Access-Control-Allow-Origin', '*'); next();
 });
 
+app.use('/auth', authRouter);
 app.use('/credit', creditRouter);
 app.use('/expenses', expensesRouter);
 app.use('/shoppingList', shoppingListRouter);
 app.use('/communalPayments', communalPaymentsRouter);
 app.use('/actualExpenses', actualExpensesRouter);
 
-
-// app.get('/api/credit', (req, res) => {
-//     res.json({ data: credit });
-//   });
-
-  app.get('/api/expenses', (req, res) => {
-    res.json({ data: expenses });
-  });
-
-  app.get('/api/shoppingList', (req, res) => {
-    res.json({ data: shoppingList });
-  });
-
-  app.post('/api/add/credit', (req, res) => {
-    credit.credit.push(req.body);
-  });
-
-  app.post('/api/add/expenses', (req, res) => {
-    expenses.expenses.push(req.body); 
-  });
-
-  app.post('/api/add/shoppingList', (req, res) => {
-    shoppingList.shoppingList.push(req.body);
-  });
 
 app.listen(PORT,()=>{
     console.log('Server listening on 3001');
