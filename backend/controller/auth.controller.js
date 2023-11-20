@@ -9,7 +9,7 @@ const generateAccessToken = (id, user) =>{
         id,
         user
     }
-    return jwt.sign(payload, secret, {expiresIn: "24h"})
+    return jwt.sign(payload, secret, {expiresIn: "1h"})
 }
 
 class authController {
@@ -25,6 +25,7 @@ class authController {
     };
 
     async Registration(req,res){
+        console.log(req.body);
         try{
             const {username,password} = req.body;
             const candidate = await db.query(`select * from user_prog where name_user = '${username}';`);           

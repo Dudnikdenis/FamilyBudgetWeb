@@ -1,3 +1,5 @@
 module.exports = {
-    secret: "SECRET_KEY_RANDOM"   // рандомный ключ
+    secret: '1234'   
 }
+
+// рандомный ключ
