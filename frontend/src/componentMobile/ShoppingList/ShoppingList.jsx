@@ -9,7 +9,7 @@ import Back from "../../Img/backIcon.png";
 const ShoppingList = (props) => { 
     
     useEffect( ()=>{
-        props.getShoppingList();
+        props.getShoppingList(props.token);
     },[])
 
     const deleteShoppingList = (e, id) =>{
@@ -32,9 +32,10 @@ const ShoppingList = (props) => {
 
     return(
         <>
-        <Link  className={cs.backIcon} to="/">
+        <Link  className={cs.backIcon} to="/select">
             <img src={Back}/>
         </Link>
+        {props.error? <label>{props.message}</label>:
         <div className={cs.shopingListDiv}>
             {props.shoppingList?
             <table className={cs.table}>
@@ -65,7 +66,7 @@ const ShoppingList = (props) => {
                 <Link className={cs.link} to="/add/ShoppingList" >  Добавить </Link>
                 <button className={cs.link} onClick={deleteList} >  Очистить </button>
            </div>
-        </div>
+        </div>}
         </>
     )
 }

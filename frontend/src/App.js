@@ -20,15 +20,3 @@ function App() {
 }
 
 export default App;
-
-
-// <div className="App">
-    //   <BrowserRouter>
-    //                 <Routes>
-    //                     <Route path='/' element = {<Main/>  }/>
-    //                     <Route path='/credit' element = {<CreditContainer/>  }/>
-    //                     <Route path='/expenses' element = {<ExpensesContainer/>  }/> 
-    //                     <Route path="/add/credit" element = {<CreditReduxForm /> }/>                         
-    //                 </Routes>
-    //         </BrowserRouter>
-    // </div>

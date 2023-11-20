@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import cs from './mainMobile.module.css';
 
   
-const SelectorMoble = (props) => { 
+const SelectorMoble = () => { 
     
     return(
             

@@ -3,23 +3,12 @@ import { FBWAPI } from "../API/api";
 const UPDATE_EXPENSES_NAME = "UPDATE_EXPENSES_NAME";
 const UPDATE_EXPENSES_AMOUNT = "UPDATE_EXPENSES_AMOUNT";
 const ADD_EXPENSES = "ADD_EXPENSES";
+const ADD_MESSAGE = "ADD_MESSAGE";
 
 let initialState = {
-    expenses:[
-        // {
-        //     id: 1,
-        //     nameExpenses: "Сделать ремонт",
-        //     amount: "60000"},
-
-        // {
-        //     id: 2,
-        //     nameExpenses: "Купить продукты",
-        //     amount: "10000"},
-        // {
-        //     id: 3,
-        //     nameExpenses: "Купить запчасти",
-        //     amount: "10000"},
-    ]
+    expenses:[],
+    message:"",
+    error: false
 }
 
 export const ExpensesReduser = (state = initialState, action) =>{
@@ -38,9 +27,13 @@ export const ExpensesReduser = (state = initialState, action) =>{
         case ADD_EXPENSES:
             stateCopy = {...state};
             stateCopy.expenses =  [...action.newExpenses];
-            //stateCopy.expenses.push(action.newExpenses); 
-            //debugger;
+            stateCopy.error = false;
             return stateCopy;
+        case ADD_MESSAGE:
+          stateCopy = {...state};
+          stateCopy.message = action.message;
+          stateCopy.error = true;
+          return stateCopy;
         default:
             return state;            
     }
@@ -49,11 +42,17 @@ export const ExpensesReduser = (state = initialState, action) =>{
 export const UpdateExpensesNameCreator = (updateExpensesName,id) =>({type:UPDATE_EXPENSES_NAME, updateExpensesName,id});// передача акшину дополнительные параметры
 export const UpdateExpensesAmountCreator = (updateExpensesAmount,id) =>({type:UPDATE_EXPENSES_AMOUNT, updateExpensesAmount,id});
 export const AddExpensesCreator = (newExpenses) =>({type:ADD_EXPENSES, newExpenses});
+export const AddMessageCreator = (message) =>({type:ADD_MESSAGE, message});
 
-export const getExpenses = () => { 
+export const getExpenses = (token) => { 
     return (dispatch) => {
-      FBWAPI.GetExpenses().then(response => {
-        dispatch (AddExpensesCreator(response))
+      FBWAPI.GetExpenses(token).then(response => {
+        if(response.status===200){
+        dispatch (AddExpensesCreator(response.data))
+        }
+        else{
+          dispatch (AddMessageCreator(response.data.message))
+        }
       });
     };
 };

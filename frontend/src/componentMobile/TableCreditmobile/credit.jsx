@@ -9,7 +9,7 @@ import Back from "../../Img/backIcon.png";
 const Credit = (props) => { 
     
     useEffect( ()=>{
-        props.getCredit();
+        props.getCredit(props.token);
     },[])
 
     const deleteCredit = (e, id) =>{
@@ -30,9 +30,10 @@ const Credit = (props) => {
 
     return(
         <>
-        <Link  className={cs.backIcon} to="/">
+        <Link  className={cs.backIcon} to="/select">
             <img src={Back}/>
         </Link>
+        {props.error? <label>{props.message}</label>:
         <div className={cs.creditDiv}>
             
             <table className={cs.table}>
@@ -82,7 +83,7 @@ const Credit = (props) => {
                     <td colspan="2" className={cs.td_total_amount}>{props.credit.totalAmount}</td>
                 </tr>
            </table>
-        </div>
+        </div>}
         </>
     )
 }

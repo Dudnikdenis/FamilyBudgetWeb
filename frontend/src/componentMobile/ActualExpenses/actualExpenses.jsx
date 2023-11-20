@@ -9,14 +9,16 @@ import Back from "../../Img/backIcon.png";
 const ActualExpenses = (props) => { 
 
     useEffect( ()=>{
-        props.getActualExpenses();
+        props.getActualExpenses(props.token);
     },[]);
     
     return(
         <>
-        <Link  className={cs.backIcon} to="/">
+        <Link  className={cs.backIcon} to="/select">
             <img src={Back}/>
         </Link>
+        
+        {props.error? <label>{props.message}</label>:
         <div className={cs.AEdiv}>            
             <b><div className={cs.AEheader}>{props.mounthActualExpenses}</div></b>
             <table className={cs.table}>
@@ -36,7 +38,7 @@ const ActualExpenses = (props) => {
                 <Link  className={cs.AELink} to="/add/category">Добавить категорию</Link>
                 <Link  className={cs.AELinkUpdate} to="/update/actualExpenses">Изменить</Link>
             </div>
-        </div>
+        </div>}
         </>
     )
 }

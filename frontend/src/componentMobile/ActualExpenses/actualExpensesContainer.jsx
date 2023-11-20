@@ -7,7 +7,10 @@ import { AddActualExpensesCreator, getActualExpenses} from "../../Redux/actualEx
 const mapStateToProps = (state) =>{
         return {
             mounthActualExpenses: state.actualExpensesReduser.mounthActualExpenses,
-            actualExpenses: state.actualExpensesReduser.actualExpenses
+            actualExpenses: state.actualExpensesReduser.actualExpenses,
+            token: state.authorization.token.token,
+            error: state.actualExpensesReduser.error,
+            message: state.actualExpensesReduser.message
     }
 }
 

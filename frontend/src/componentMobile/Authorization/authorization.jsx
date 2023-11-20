@@ -8,7 +8,7 @@ const Authorization = (props) =>{
     const { register, handleSubmit } = useForm();
     const submit = (dataForm) => {
         props.postAddToken(dataForm)
-        navigate('/credit');
+        navigate('/select');
     };
     return(
         <form onSubmit={handleSubmit(submit)}>

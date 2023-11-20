@@ -19,6 +19,7 @@ import ActualExpensesContainer from "../ActualExpenses/actualExpensesContainer";
 import ActualExpensesFormContainer from "../ActualExpenses/actualExpensesFormContainer";
 import AddCategoryForm from "../ActualExpenses/addCategoryForm";
 import UpdateActualExpensesFormContainer from "../../component/ActualExpenses/updateActualExpensesFormContainer";
+import AuthorizationContainer from "../../componentMobile/Authorization/authorizationContainer";
 
 
 const MainMoble = () => { 
@@ -35,7 +36,8 @@ const MainMoble = () => {
                 </div>
                 <div className={cs.panel}>
                     <Routes>
-                        <Route path='/' element = {<SelectorMoble/>}/>
+                        <Route path='/' element = {<AuthorizationContainer/>}/> 
+                        <Route path='/select' element = {<SelectorMoble/>}/> 
                         <Route path='/credit' element = {<CreditContainer/>}/>
                         <Route path='/expenses' element = {<ExpensesContainer/>}/>
                         <Route path="/add/credit" element = {<CreditReduxForm /> }/> 

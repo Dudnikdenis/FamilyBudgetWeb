@@ -1,32 +1,84 @@
 import axios from "axios";
 
 const instance = axios.create({
-    baseURL: 'http://localhost:3001/', //'http://80.244.39.148:3001/'
-    headers: {
-        'accept': '*/*',
-        'Content-Type': 'application/json'
-    }
+    baseURL: 'http://localhost:3001/' //'http://80.244.39.148:3001/'    
 })
 export const FBWAPI = {
-    async GetCredit() 
-    {
-        return await instance.get("credit/get").then(response => {           
+
+    async AddToken(user){
+        return await instance.post("auth/login", user).then(response => {           
             return response.data
         });
     },
 
-    async GetExpenses() 
+    async GetCredit(token) 
     {
-        return await instance.get("expenses/get").then(response => {           
-            return response.data
-        });
+        let config = {headers: {
+            'accept': '*/*',
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        }};
+        return await instance.get("credit/get", config).catch((error) => {
+            if (error.response) {
+                return error.response;
+            }
+          })
     },
 
-    async GetShoppingList() 
+    async GetExpenses(token) 
     {
-        return await instance.get("shoppingList/get").then(response => {           
-            return response.data
-        });
+        let config = {headers: {
+            'accept': '*/*',
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        }};
+        return await instance.get("expenses/get", config).catch((error) => {
+            if (error.response) {
+                return error.response;
+            }
+          })
+    },
+
+    async GetShoppingList(token) 
+    {
+        let config = {headers: {
+            'accept': '*/*',
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        }};
+        return await instance.get("shoppingList/get", config).catch((error) => {
+            if (error.response) {
+                return error.response;
+            }
+          })
+    },
+
+    async GetCommunalPayments(token) 
+    {
+        let config = {headers: {
+            'accept': '*/*',
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        }};
+        return await instance.get("communalPayments/get", config).catch((error) => {
+            if (error.response) {
+                return error.response;
+            }
+          })
+    },
+
+    async GetActualExpenses(token) 
+    {
+        let config = {headers: {
+            'accept': '*/*',
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        }};
+         return await instance.get(`actualExpenses/get`, config).catch((error) => {
+            if (error.response) {
+                return error.response;
+            }
+          })
     },
 
     async AddCredit(credit) 
@@ -93,12 +145,7 @@ export const FBWAPI = {
          });
     },
 
-    async GetCommunalPayments() 
-    {
-        return await instance.get("communalPayments/get").then(response => {           
-            return response.data
-        });
-    },
+    
 
     async GetCategoryList() 
     {
@@ -128,10 +175,5 @@ export const FBWAPI = {
          });
     },
 
-    async GetActualExpenses() // надо также переписать остальные запросы (убрать все одинаковые)
-    {
-         return await instance.get(`actualExpenses/get`).then(response=>{
-            return response.data;
-         });
-    },
+   
 }

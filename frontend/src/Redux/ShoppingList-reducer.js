@@ -1,9 +1,12 @@
 import { FBWAPI } from "../API/api";
 
 const ADD_SHOPPING_LIST = "ADD_SHOPPING_LIST";
+const ADD_MESSAGE = "ADD_MESSAGE";
 
 let initialState = {
-    shoppingList:[]
+    shoppingList:[],
+    message:"",
+    error: false
 }
 
 export const ShoppingListReduser = (state = initialState, action) =>{
@@ -12,7 +15,13 @@ export const ShoppingListReduser = (state = initialState, action) =>{
         case ADD_SHOPPING_LIST:
             stateCopy = {...state};
             stateCopy.shoppingList=[...action.newShoppingList]; 
+            stateCopy.error = false;
             return stateCopy;
+        case ADD_MESSAGE:
+          stateCopy = {...state};
+          stateCopy.message = action.message;
+          stateCopy.error = true;
+          return stateCopy;
         default:
             return state;            
     }
@@ -20,11 +29,17 @@ export const ShoppingListReduser = (state = initialState, action) =>{
 
 
 export const AddShoppingListCreator = (newShoppingList) =>({type:ADD_SHOPPING_LIST, newShoppingList});
+export const AddMessageCreator = (message) =>({type:ADD_MESSAGE, message});
 
-export const getShoppingList = () => {   // Thunk
+export const getShoppingList = (token) => {   // Thunk
     return (dispatch) => {
-      FBWAPI.GetShoppingList().then(response => {
-        dispatch (AddShoppingListCreator(response))
+      FBWAPI.GetShoppingList(token).then(response => {
+        if(response.status===200){
+        dispatch (AddShoppingListCreator(response.data))
+        }
+        else{
+          dispatch (AddMessageCreator(response.data.message))
+        }
       });
     };
 };

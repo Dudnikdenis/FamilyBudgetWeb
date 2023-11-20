@@ -5,9 +5,11 @@ import { getCommunalPayments, Records_indications} from "../../Redux/communalPay
 
 
 const mapStateToProps = (state) =>{
-    console.log(state)
         return {
-            communalPayments: state.communalPayments
+            communalPayments: state.communalPayments,
+            token: state.authorization.token.token,
+            error: state.communalPayments.error,
+            message: state.communalPayments.message
     }
 }
 

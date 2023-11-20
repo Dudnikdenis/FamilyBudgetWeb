@@ -7,7 +7,10 @@ import { UpdateExpensesNameCreator,  UpdateExpensesAmountCreator, AddExpensesCre
 
 const mapStateToProps = (state) =>{
         return {
-        expenses: state.expenses
+        expenses: state.expenses,
+        token: state.authorization.token.token,
+        error: state.expenses.error,
+        message: state.expenses.message
     }
 }
 

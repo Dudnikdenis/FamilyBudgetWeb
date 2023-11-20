@@ -5,14 +5,13 @@ import {
     BrowserRouter, Routes,
     Route,
   } from 'react-router-dom'
-  
-  import CreditContainer from '../TableCredit/creditContainer';
-  import ExpensesContainer from '../Expenses/expensesContainer';
-  import CreditReduxForm from '../TableCredit/creditForm';
-  import ExpensesReduxForm from '../Expenses/expensesForm';
-  import ShoppingListContainer from "../ShoppingList/ShoppingListContainer";
+import CreditContainer from '../TableCredit/creditContainer';
+import ExpensesContainer from '../Expenses/expensesContainer';
+import CreditReduxForm from '../TableCredit/creditForm';
+import ExpensesReduxForm from '../Expenses/expensesForm';
+import ShoppingListContainer from "../ShoppingList/ShoppingListContainer";
 import ShoppingListForm from "../ShoppingList/shoppingListForm";
-import Authorization from "../Authorization/authorization";
+import AuthorizationContainer from "../Authorization/authorizationContainer";
 import logo from '../../Img/pngegg.png'
 import CommunalPaymentsContainer from "../CommunalPayments/communalPaymentsContainer";
 import ActualExpensesContainer from "../ActualExpenses/actualExpensesContainer";
@@ -21,18 +20,18 @@ import AddCategoryForm from "../ActualExpenses/addCategoryForm";
 import UpdateActualExpensesFormContainer from "../ActualExpenses/updateActualExpensesFormContainer";
 
 
-const Main = (props) => { 
+const Main = () => { 
     
     return(
             <div className={cs.total}>
                 <BrowserRouter>
-                <div className={cs.header}>
-                    <img src={logo} className={cs.img}/>
-                    <div className={cs.divHeader}></div>
-                    <div className={cs.butHeader}>
-                    <Link className={cs.linkAuthor} to="/" >Войти</Link>
+                    <div className={cs.header}>
+                        <img src={logo} className={cs.img}/>
+                        <div className={cs.divHeader}></div>
+                        <div className={cs.butHeader}>
+                            <Link className={cs.linkAuthor} to="/" >Войти</Link>
+                        </div>
                     </div>
-                </div>
                     <div className={cs.panel}>
                         <div className={cs.tabs}>
                             <Link className={cs.link} to="/credit" >Кредиты </Link>
@@ -52,7 +51,7 @@ const Main = (props) => {
                     </div>
                     <div className={cs.main}>
                         <Routes>
-                            <Route path='/' element = {<Authorization/>  }/>
+                            <Route path='/' element = {<AuthorizationContainer/>  }/>
                             <Route path='/credit' element = {<CreditContainer/>  }/>
                             <Route path='/expenses' element = {<ExpensesContainer/>  }/> 
                             <Route path="/add/credit" element = {<CreditReduxForm /> }/> 

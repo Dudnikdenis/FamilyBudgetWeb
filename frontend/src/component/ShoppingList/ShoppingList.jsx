@@ -8,7 +8,7 @@ import Delete from "../../Img/waste_bin_delete_remove_recycle_icon_123840.png";
 const ShoppingList = (props) => { 
     
     useEffect( ()=>{
-        props.getShoppingList();
+        props.getShoppingList(props.token);
     },[])
 
     const deleteShoppingList = (e, id) =>{
@@ -30,6 +30,8 @@ const ShoppingList = (props) => {
      }
 
     return(
+        <>
+        {props.error? <label>{props.message}</label>:
         <div className={cs.creditDiv}>
             {props.shoppingList?
             <table className={cs.table}>
@@ -60,7 +62,8 @@ const ShoppingList = (props) => {
                 <Link className={cs.link} to="/add/ShoppingList" >  Добавить </Link>
                 <button className={cs.link} onClick={deleteList} >  Очистить </button>
            </div>
-        </div>
+        </div>}
+        </>
     )
 }
 

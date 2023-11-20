@@ -6,7 +6,7 @@ import cs from './communalPayments.module.css';
 const CommunalPayments = (props) => { 
 
     useEffect( ()=>{
-        props.getCommunalPayments();
+        props.getCommunalPayments(props.token);
     },[])
 
     const { register, handleSubmit } = useForm({
@@ -39,6 +39,8 @@ const CommunalPayments = (props) => {
     }
 
     return(
+        <>
+        {props.error? <label>{props.message}</label>:
         <div>
             <div><h1>Октябрь</h1></div>
             <form onSubmit={handleSubmit(submit)}>
@@ -98,7 +100,8 @@ const CommunalPayments = (props) => {
                 </table>
                 <button>save</button>
                 </form>
-        </div>
+        </div>}
+        </>
     )
 }
 

@@ -8,7 +8,7 @@ import Back from "../../Img/backIcon.png";
 const Expenses = (props) => { 
 
     useEffect( ()=>{
-        props.getExpenses();
+        props.getExpenses(props.token);
     },[])
 
 
@@ -28,9 +28,10 @@ const Expenses = (props) => {
 
     return(
         <>
-        <Link  className={cs.backIcon} to="/">
+        <Link  className={cs.backIcon} to="/select">
             <img src={Back}/>
         </Link>
+        {props.error? <label>{props.message}</label>:
         <div>            
             <table  className={cs.table}>
                         <tr>
@@ -60,7 +61,7 @@ const Expenses = (props) => {
                 <div className={cs.addCredit}>
                     <Link className={cs.link} to="/add/expenses" > Добавить </Link>
                 </div>
-        </div>
+        </div>}
         </>
     )
 }

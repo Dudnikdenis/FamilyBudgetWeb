@@ -6,7 +6,10 @@ import { AddShoppingListCreator, getShoppingList, deleteShoppingList, deleteShop
 
 const mapStateToProps = (state) =>{
         return {
-        shoppingList: state.ShoppingList.shoppingList
+        shoppingList: state.ShoppingList.shoppingList,
+        token: state.authorization.token.token,
+        error: state.ShoppingList.error,
+        message: state.ShoppingList.message
     }
 }
 

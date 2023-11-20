@@ -6,7 +6,10 @@ import { AddCreditCreator, getCredit, deleteCredit, UpdateAccomplishment} from "
 
 const mapStateToProps = (state) =>{
         return {
-        credit: state.credit
+        credit: state.credit,
+        token: state.authorization.token.token,
+        error: state.credit.error,
+        message: state.credit.message
     }
 }
 

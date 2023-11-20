@@ -6,8 +6,10 @@ import ExpensesReduser from "./expenses-reducer";
 import ShoppingListReducer from "./ShoppingList-reducer";
 import CommunalPaymentsReduser from "./communalPayments-reducer";
 import ActualExpensesReduser from "./actualExpenses-reducer";
+import AuthorizationReduser from "./authorization-reducer"
 
 let reducers = combineReducers({
+    authorization: AuthorizationReduser,
     expenses: ExpensesReduser,
     credit: creditReducer,
     ShoppingList: ShoppingListReducer,

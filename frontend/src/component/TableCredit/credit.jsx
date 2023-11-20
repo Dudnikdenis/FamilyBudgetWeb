@@ -8,7 +8,7 @@ import Delete from "../../Img/waste_bin_delete_remove_recycle_icon_123840.png";
 const Credit = (props) => { 
     
     useEffect( ()=>{
-        props.getCredit();
+        props.getCredit(props.token);
     },[])
 
     const deleteCredit = (e, id) =>{
@@ -28,7 +28,8 @@ const Credit = (props) => {
 
 
     return(
-        <div className={cs.creditDiv}>
+        <>
+        {props.error? <label>{props.message}</label>:<div className={cs.creditDiv}>
             <table className={cs.table}>
                         <tr>
                             <th className={cs.td_name}>Название банка</th>
@@ -76,7 +77,9 @@ const Credit = (props) => {
                     <td colspan="2" className={cs.td_total_amount}>{props.credit.totalAmount}</td>
                 </tr>
            </table>
-        </div>
+        </div>}
+        
+        </>
     )
 }
 

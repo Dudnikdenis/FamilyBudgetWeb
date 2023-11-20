@@ -7,7 +7,7 @@ import Delete from "../../Img/waste_bin_delete_remove_recycle_icon_123840.png";
 const Expenses = (props) => { 
 
     useEffect( ()=>{
-        props.getExpenses();
+        props.getExpenses(props.token);
     },[])
 
 
@@ -26,6 +26,8 @@ const Expenses = (props) => {
      }
 
     return(
+        <>
+        {props.error? <label>{props.message}</label>:
         <div>
             <table  className={cs.table}>
                         <tr>
@@ -55,7 +57,8 @@ const Expenses = (props) => {
                 <div className={cs.addCredit}>
                     <Link className={cs.link} to="/add/expenses" > Добавить </Link>
                 </div>
-        </div>
+        </div>}
+        </>
     )
 }
 
