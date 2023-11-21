@@ -1,6 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate} from "react-router-dom";
+import cs from "./authorization.module.css"
 
 const Authorization = (props) =>{
 
@@ -12,13 +13,13 @@ const Authorization = (props) =>{
     };
     return(
         <form onSubmit={handleSubmit(submit)}>
-            <div >
+            <div className={cs.inp}>
                 <input {...register("username")}  type="text" placeholder="Имя"/>
             </div>
-            <div>
+            <div className={cs.inp}>
                 <input {...register("password")}  type="password" placeholder="Пароль"/>
             </div>
-            <button>Войти</button>
+            <button className={cs.but}>Войти</button>
         </form>
     )
 };

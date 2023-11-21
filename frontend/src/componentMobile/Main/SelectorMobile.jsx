@@ -1,24 +1,42 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import cs from './mainMobile.module.css';
 
   
 const SelectorMoble = () => { 
+
+    const Navigate = useNavigate();
+
+    const CreditBut = () =>{
+        Navigate('/credit');
+    };
+
+    const ExpensesBut = () =>{
+        Navigate('/expenses');
+    }
+
+    const ShopBut = () =>{
+        Navigate('/shoppingList');
+    }
+
+    const ActualExpBut = () =>{
+        Navigate('/actualExpenses');
+    }
     
     return(
             
-        <div >
-            <div className={cs.tabs}>
-                <Link className={cs.link} to="/credit" >Кредиты </Link>
+        <div className={cs.sel}>
+            <div onClick={CreditBut} className={cs.cre}>
+                Кредиты 
             </div>
-            <div className={cs.tabs}>
-                <Link className={cs.link} to="/expenses" >Расходы</Link>
+            <div onClick={ExpensesBut} className={cs.exp}>
+                Расходы
             </div>
-            <div className={cs.tabs}>
-                <Link className={cs.link} to="/shoppingList" >Список покупок</Link>
+            <div onClick={ShopBut} className={cs.shop}>
+                Список покупок
             </div>
-            <div className={cs.tabs}>
-            <Link className={cs.link} to="/actualExpenses" >Фактические расходы</Link>
+            <div onClick={ActualExpBut} className={cs.actExp}>
+                Фактические расходы
             </div>
         </div>
            

@@ -11,7 +11,6 @@
 .header{
     grid-area: header;
     border-radius: 20px;
-    background-color: #808080;
     background: linear-gradient(90deg, rgba(128,128,128,1) 0%, rgba(255,255,255,1) 46%);
     margin: 5px;
     display: grid;
@@ -24,7 +23,7 @@
     grid-area: panel;
     border-radius: 20px;
     height: 1000px;
-    background-color: rgb(108, 119, 151);
+    background: linear-gradient(90deg, rgba(255, 230, 0, 0.651) 0%, rgba(25, 0, 255, 0.26) 46%);
     padding: 30px;
     margin: 5px;
 }
@@ -57,14 +56,65 @@
     margin: 5px;
 }
 
-.tabs{
+
+
+
+
+.sel{
+    display: grid;
+    grid-template-areas:
+"cre exp"
+"shop actExp ";
+    grid-template-rows: 5fr 4fr;
+    grid-template-columns: 2fr 7fr;
+}
+
+.cre{
+    grid-area: cre;
+    border-radius: 10px;
     padding-bottom: 15px;
+    height: auto;
+    width: auto;
+    background: linear-gradient(90deg, rgba(0, 81, 255, 0.651) 0%, rgba(58, 224, 8, 0.342) 46%);
+    margin: 30px;
+    text-align: center
+}
+
+.exp{
+    grid-area: exp;
+    border-radius: 10px;
+    padding-bottom: 15px;
+    height: auto;
+    width: auto;
+    background: linear-gradient(90deg, rgba(0, 81, 255, 0.651) 0%, rgba(58, 224, 8, 0.342) 46%);
+    margin: 30px;
+}
+
+.shop{
+    grid-area: shop;
+    border-radius: 10px;
+    padding-bottom: 15px;
+    height: auto;
+    width: auto;
+    background: linear-gradient(90deg, rgba(0, 81, 255, 0.651) 0%, rgba(58, 224, 8, 0.342) 46%);
+    margin: 30px;
+}
+
+.actExp{
+    grid-area: actExp;
+    border-radius: 10px;
+    padding-bottom: 15px;
+    height: auto;
+    width: auto;
+    background: linear-gradient(90deg, rgba(0, 81, 255, 0.651) 0%, rgba(58, 224, 8, 0.342) 46%);
+    margin: 30px;
 }
 
 .link{
+    
     text-decoration: none;
-    color: black;
-    font-size: 18px;
+    color: rgb(10, 1, 59);
+    font-size: 14px;
   }
 
   .linkAuthor{
