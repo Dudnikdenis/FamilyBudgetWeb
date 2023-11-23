@@ -14,9 +14,11 @@ const generateAccessToken = (id, user) =>{
 
 class authController {
 
+    
     async Get(req,res){
         try{
-            return res.json({message:'получилось!'})
+            const result = await db.query('select user_id AS id, name_user as username from user_prog;');
+            return res.status(200).json(result.rows);
 
         }
         catch (e) {
@@ -34,7 +36,6 @@ class authController {
             }
             else{
                 var hashPassword = bcrypt.hashSync(password, 7);
-                console.log(hashPassword);
                 const newuser = await db.query(`insert into user_prog(name_user, password_user) values ('${username}', '${hashPassword}');`);
                 if(newuser){
                     return res.status(200).json({message:'Пользователь зарегистрирован'});
@@ -61,7 +62,6 @@ class authController {
                 
             }
             else{
-                console.log(checkPassword);
                 return res.status(400).json({message:"Не входи!"})
             }
         }
@@ -71,8 +71,24 @@ class authController {
         } 
     }; 
 
+    async UpdateUser(req,res){
+        try{
+            const {user_id, password} = req.body;
+            var hashPassword = bcrypt.hashSync(password, 7);
+            const newuser = await db.query(`UPDATE user_prog SET password_user = '${hashPassword}' WHERE user_id = ${user_id};`);
+            if(newuser){
+                return res.status(200).json({message:'Пароль сохранился'});
+            }
+            else{
+                return res.status(400).json({message:'Пароль не сохранился'});
+            }
+        }
+        catch (e) {
+            console.log(e);
+            res.status(400).json({massage:'Update error'});
+        } 
+    }; 
 
-    
 }
 
 

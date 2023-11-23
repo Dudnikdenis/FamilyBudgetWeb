@@ -27,16 +27,16 @@ const SelectorMoble = () => {
             
         <div className={cs.sel}>
             <div onClick={CreditBut} className={cs.cre}>
-                Кредиты 
+                <b>Кредиты</b> 
             </div>
             <div onClick={ExpensesBut} className={cs.exp}>
-                Расходы
+                <b>Расходы</b>
             </div>
             <div onClick={ShopBut} className={cs.shop}>
-                Список покупок
+                <b>Список покупок</b>
             </div>
             <div onClick={ActualExpBut} className={cs.actExp}>
-                Фактические расходы
+                <b>Фактические расходы</b>
             </div>
         </div>
            

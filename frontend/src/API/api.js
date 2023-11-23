@@ -81,6 +81,21 @@ export const FBWAPI = {
           })
     },
 
+    async GetUserList(token) 
+    {
+        let config = {headers: {
+            'accept': '*/*',
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        }};
+
+        return await instance.get('auth/userlist', config).catch((error) => {
+            if (error.response) {
+                return error.response;
+            }
+          })
+    },
+
     async AddCredit(credit) 
     {
          return await instance.post("credit/add", credit).then(response=>{
@@ -175,5 +190,12 @@ export const FBWAPI = {
          });
     },
 
-   
+    
+
+    async UpdateUser(user) 
+    {
+         return await instance.post(`auth/update`, user).then(response=>{
+        console.log(response);
+         });
+    },
 }

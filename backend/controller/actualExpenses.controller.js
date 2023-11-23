@@ -44,8 +44,18 @@ class actualExpensesController {
     }; 
 
     async AddCategory(req,res){
-        await db.query(`insert into category(category) values ('${req.body.category}');`);        
+        try{
+        const date = new Date();
+        await db.query(`insert into category(category) values ('${req.body.category}');`);
+        const categoryId = await db.query(`select (id) from category where category = '${req.body.category}';`);
+        await db.query(`insert into actual_expenses(amount, month, category_id) values (0, ${date.getMonth()}, ${categoryId.rows[0].id});`);
+
         return res = "Ok";
+        }
+        catch(e){
+            console.log(e);
+            res.status(400).json({message: e.error});
+        }
 }; 
 
 

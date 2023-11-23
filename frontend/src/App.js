@@ -2,6 +2,7 @@ import './App.css';
 import { useMediaQuery } from 'react-responsive'
 import Main from './component/Main/Main';
 import MainMobile from './componentMobile/Main/MainMobile';
+import MainMobileContainer from './componentMobile/Main/mainMobileContainer';
 
 function App() {
   const isDesktop = useMediaQuery({
@@ -14,7 +15,7 @@ function App() {
   return (
 <>
 {isDesktop&&<Main/>}
-{isMobile&&<MainMobile/>}
+{isMobile&&<MainMobileContainer/>}
 </>
   );
 }

@@ -5,13 +5,14 @@
 "panel panel panel ";
     grid-template-rows: 60px 1fr;
     grid-template-columns: 2fr 10fr;
+    background-image: url('../../Img/fon.jpg');
 
  }
 
 .header{
     grid-area: header;
     border-radius: 20px;
-    background: linear-gradient(90deg, rgba(128,128,128,1) 0%, rgba(255,255,255,1) 46%);
+    background: linear-gradient(90deg, rgba(240,240,12,1) 0%, rgba(255,255,255,1) 87%);
     margin: 5px;
     display: grid;
     grid-template-areas:
@@ -23,7 +24,7 @@
     grid-area: panel;
     border-radius: 20px;
     height: 1000px;
-    background: linear-gradient(90deg, rgba(255, 230, 0, 0.651) 0%, rgba(25, 0, 255, 0.26) 46%);
+    
     padding: 30px;
     margin: 5px;
 }
@@ -71,43 +72,51 @@
 
 .cre{
     grid-area: cre;
+    border: 2px solid #515151;
     border-radius: 10px;
     padding-bottom: 15px;
     height: auto;
     width: auto;
-    background: linear-gradient(90deg, rgba(0, 81, 255, 0.651) 0%, rgba(58, 224, 8, 0.342) 46%);
+    background-image: url('../../Img/credit.jpg');
     margin: 30px;
-    text-align: center
+    text-align: center;
+    opacity: .7;
 }
 
 .exp{
     grid-area: exp;
+    border: 2px solid #515151;
     border-radius: 10px;
     padding-bottom: 15px;
     height: auto;
     width: auto;
-    background: linear-gradient(90deg, rgba(0, 81, 255, 0.651) 0%, rgba(58, 224, 8, 0.342) 46%);
+    background-image: url('../../Img/expenses.jpg');
     margin: 30px;
+    opacity: .7;
 }
 
 .shop{
     grid-area: shop;
+    border: 2px solid #515151;
     border-radius: 10px;
     padding-bottom: 15px;
     height: auto;
     width: auto;
-    background: linear-gradient(90deg, rgba(0, 81, 255, 0.651) 0%, rgba(58, 224, 8, 0.342) 46%);
+    background-image: url('../../Img/shopingList.jpg');
     margin: 30px;
+    opacity: .7;
 }
 
 .actExp{
     grid-area: actExp;
+    border: 2px solid #515151;
     border-radius: 10px;
     padding-bottom: 15px;
     height: auto;
     width: auto;
-    background: linear-gradient(90deg, rgba(0, 81, 255, 0.651) 0%, rgba(58, 224, 8, 0.342) 46%);
+    background-image: url('../../Img/actualExpenses.jpg');
     margin: 30px;
+    opacity: .7;
 }
 
 .link{
@@ -119,6 +128,11 @@
 
   .linkAuthor{
     text-decoration: none;
+    color: black;
+    font-size: 18px;
+  }
+
+  .UserAuthor{
     color: black;
     font-size: 18px;
   }

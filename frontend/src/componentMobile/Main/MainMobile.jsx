@@ -20,10 +20,11 @@ import ActualExpensesFormContainer from "../ActualExpenses/actualExpensesFormCon
 import AddCategoryForm from "../ActualExpenses/addCategoryForm";
 import UpdateActualExpensesFormContainer from "../../component/ActualExpenses/updateActualExpensesFormContainer";
 import AuthorizationContainer from "../../componentMobile/Authorization/authorizationContainer";
+import UpdateUserContainer from "../Authorization/updateUserContainer";
 
 
-const MainMoble = () => { 
-    
+const MainMoble = (props) => { 
+
     return(
             <div className={cs.total}>
                 <BrowserRouter>
@@ -31,12 +32,16 @@ const MainMoble = () => {
                     <img src={logo} className={cs.img}/>
                     <div className={cs.divHeader}></div>
                     <div className={cs.butHeader}>
-                    <Link className={cs.linkAuthor} to="/" >Войти</Link>
+                        {props.user? <><label className={cs.UserAuthor}>{props.user}</label>
+                                        <Link className={cs.linkAuthor} to="/updateuser" > n</Link>
+                                      </>  
+                        :<Link className={cs.linkAuthor} to="/" >Войти</Link>}
                     </div>
                 </div>
                 <div className={cs.panel}>
                     <Routes>
                         <Route path='/' element = {<AuthorizationContainer/>}/> 
+                        <Route path="/updateuser" element = {<UpdateUserContainer/>}/>
                         <Route path='/select' element = {<SelectorMoble/>}/> 
                         <Route path='/credit' element = {<CreditContainer/>}/>
                         <Route path='/expenses' element = {<ExpensesContainer/>}/>
